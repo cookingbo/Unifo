@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # 会員側ルーティング
   namespace :public do
     resources :posts, only: [:new, :create, :index, :edit, :update, :destroy] do
+      resource :likes, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
   end
