@@ -1,5 +1,5 @@
+<!--会員情報編集ページ-->
 <h2>会員情報編集</h2>
-
 <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
   <div class="field">
     <%= f.label :last_name %><br />

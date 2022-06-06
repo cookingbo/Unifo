@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   # 画像投稿のimageカラムとして扱う
   has_one_attached :image
 
+  # get_imageを定義づけ
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image1.png')

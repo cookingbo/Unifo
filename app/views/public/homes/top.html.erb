@@ -4,15 +4,20 @@
 <div>
   <%= image_tag post.get_image(200,200) %>
   <%= link_to post.user.full_name, public_user_path(post.user_id) %>
-  <%= post.user.university %>
-  <%= post.user.area %>
-  <%= post.user.country %>
-  <%= post.user.introduction %>
   <%= post.place %>
   <%= post.explaination %>
+
+
   <% if post.user == current_user %>
     <%= link_to "編集", edit_public_post_path(post.id) %>
     <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
   <% end %>
+</div>
+<div>
+  <%= post.user.university %>
+  <%= post.user.area %>
+  <%= post.user.country %>
+  <%= post.user.introduction %>
+
 </div>
 <% end %>
