@@ -1,0 +1,30 @@
+<h2>マイページ</h2>
+<!--投稿者の投稿一覧-->
+<% @posts.each do |post| %>
+<div>
+  <%= image_tag post.get_image(200,200) %>
+  <%= post.place %>
+  <%= post.explaination %>
+  <% if post.user == current_user %>
+    <%= link_to "編集", edit_public_post_path(post.id) %>
+    <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  <% end %>
+</div>
+<% end %>
+
+<!--投稿者の情報詳細-->
+<div>
+  <label>
+    留学していた大学：<%= @user.university %>
+  </label>
+  <label>
+    地域：<%= @user.area %>
+  </label>
+  <label>
+    国名：<%= @user.country %>
+  </label>
+  <label>
+    自己紹介：<%= @user.introduction %>
+  </label>
+  <%= link_to "編集する", edit_public_user_path(@user) %>
+</div>

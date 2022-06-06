@@ -5,8 +5,9 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     @post.save
-    redirect_to public_posts_path
+    redirect_to "/"
   end
 
   def index
@@ -14,8 +15,14 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to "/"
+  end
   private
 
   def post_params
