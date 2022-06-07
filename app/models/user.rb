@@ -9,9 +9,9 @@ class User < ApplicationRecord
   has_many :likes,         dependent: :destroy
 
   # フォローしたユーザ(foreign_key(親子関係)でrelationshipのカラムを取ってくる)
-  has_many :relationships, class_name: "Relationship", foreign_key: follower_id, dependent: :destroy
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   # フォローされたユーザ(foreign_key(親子関係)でrelationshipのカラムを取ってくる)
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: followed_id, dependent: :destroy
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   # フォロー
   has_many :followings, through: :relationships, source: :followed
   # フォロワー
@@ -31,12 +31,12 @@ class User < ApplicationRecord
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
-　# フォローを外すとき
-　def unfollow(user_id)
-　  relationships.find_by(followed_id: user_id).destroy
-　end
-　# フォローしているか判定
-　def following?(user)
-　  followings.include?(user)
-　end
+  # フォローを外すとき
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+  # フォローしているか判定
+  def following?(user)
+    followings.include?(user)
+  end
 end

@@ -11,6 +11,24 @@
     <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
   <% end %>
 </div>
+<!--ログインしているときはいいねできる-->
+<% if user_signed_in? %>
+  <% if post.liked_by?(current_user) %>
+    <%= link_to public_post_likes_path(post.id), method: :delete do %>
+      <i class="fas fa-thumbs-up fa-lg"></i>
+    <% end %>
+      <%= post.likes.count %> いいね
+  <% else %>
+    <%= link_to public_post_likes_path(post.id), method: :post do %>
+      <i class="far fa-thumbs-up fa-lg"></i>
+    <% end %>
+      <%= post.likes.count %> いいね
+  <% end %>
+<% else %>
+  <%= post.likes.count %> いいね<!--ログインしていないときはいいねカウントのみ-->
+<% end %>
+
+
 <div>
   <%= post.user.university %>
   <%= post.user.area %>
