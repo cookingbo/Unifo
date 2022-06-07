@@ -11,23 +11,15 @@
     <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
   <% end %>
 </div>
+<!--いいねボタン-->
 <!--ログインしているときはいいねできる-->
 <% if user_signed_in? %>
-  <% if post.liked_by?(current_user) %>
-    <%= link_to public_post_likes_path(post.id), method: :delete do %>
-      <i class="fas fa-thumbs-up fa-lg"></i>
-    <% end %>
-      <%= post.likes.count %> いいね
-  <% else %>
-    <%= link_to public_post_likes_path(post.id), method: :post do %>
-      <i class="far fa-thumbs-up fa-lg"></i>
-    <% end %>
-      <%= post.likes.count %> いいね
-  <% end %>
+  <div id="like_buttons_<%= post.id %>">
+    <%= render "public/likes/like", post: post %>
+  </div>
 <% else %>
-  <%= post.likes.count %> いいね<!--ログインしていないときはいいねカウントのみ-->
+  <i class="fas fa-thumbs-up fa-lg"></i><%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
 <% end %>
-
 
 <div>
   <%= post.user.university %>
@@ -37,3 +29,7 @@
 
 </div>
 <% end %>
+
+<script>
+  console.log($("#like_buttons_1").html());
+</script>
