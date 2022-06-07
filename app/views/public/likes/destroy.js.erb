@@ -1,4 +1,2 @@
-console.log($("#like_buttons_<%= @post.id %>").html());
-
+<!--ここの@postのデータはlikes_controllerのdestroyアクションが起動すると送られてくる-->
 $("#like_buttons_<%= @post.id %>").html("<%= j(render "public/likes/like", post: @post) %>");
-console.log($("#like_buttons_<%= @post.id %>").html());
