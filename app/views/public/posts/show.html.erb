@@ -19,23 +19,14 @@
     <%= link_to "削除", public_post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' } %>
   <% end %>
 </div>
-
-<div>
-  <%= form_with model: [@post, @comment], url: public_post_post_comments_path(@post), method: :post do |f| %>
-    <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
-    <%= f.submit "投稿" %>
-  <% end %>
+<!--コメント投稿-->
+<div class="new-comment">
+  <%= render 'public/post_comments/form', post: @post, comment: @comment %>
 </div>
-
-<% if @post.post_comments.present? %>
-  <% @post.post_comments.each do |post_comment| %>
-    <%= post_comment.user.full_name %>
-    <%= post_comment.comment %>
-  <% end %>
-<% else %>
-  <p>コメントはまだありません</p>
-<% end %>
-
+<!--コメント一覧-->
+<div id="comments_area">
+  <%= render 'public/post_comments/post_comments', post: @post %>
+</div>
 
 <!--サイドバー-->
 <div>
