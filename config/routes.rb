@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy] # 1人のユーザに対して一度しかフォローできないため、resourceとすることでidを含めない形にした。
       get "followings" => "relationships#followings", as: "followings"
-      get "followers" => "relationships#follwers", as: "follwers"
+      get "followers" => "relationships#followers", as: "followers"
     end
   end
 
