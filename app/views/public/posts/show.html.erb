@@ -1,0 +1,44 @@
+<h2>show</h2>
+
+<div>
+  <%= image_tag @post.get_image(200,200) %>
+  <!--いいねボタン。ログインしているときはいいねできる-->
+  <% if user_signed_in? %>
+    <p id="like_buttons_<%= @post.id %>">
+      <%= render "public/likes/like", post: @post %>
+    </p>
+  <% else %>
+    <i class="fas fa-thumbs-up fa-lg"></i><%= @post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
+  <% end %>
+
+  <%= link_to @post.user.full_name, public_user_path(@post.user_id) %>
+  <%= @post.place %>
+  <%= @post.explaination %>
+  <% if @post.user == current_user %>
+    <%= link_to "編集", edit_public_post_path(@post) %>
+    <%= link_to "削除", public_post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_with model: [@post, @comment], url: public_post_post_comments_path(@post), method: :post do |f| %>
+    <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
+    <%= f.submit "投稿" %>
+  <% end %>
+</div>
+
+<% if @post.post_comments.present? %>
+  <% @post.post_comments.each do |post_comment| %>
+    <%= post_comment.user.full_name %>
+    <%= post_comment.comment %>
+  <% end %>
+<% else %>
+  <p>コメントはまだありません</p>
+<% end %>
+
+
+<!--サイドバー-->
+<div>
+  <p><%= link_to "新規投稿", new_public_post_path %></p>
+  <%= render 'sidebar', user: current_user %>
+</div>

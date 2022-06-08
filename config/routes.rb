@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # 会員側ルーティング
   namespace :public do
     # postsに対してlikesとpost_commentsをネストする。
-    resources :posts, only: [:new, :create, :index, :edit, :update, :destroy] do
+    resources :posts do
       resource :likes, only: [:create, :destroy] # 1つの投稿に対して1回だけしかいいねできないため、resourceとすることでいいねのidを含めない形にした
       resources :post_comments, only: [:create, :destroy]
     end

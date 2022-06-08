@@ -1,35 +1,24 @@
 <h2>新着投稿</h2>
 <!--トップページの投稿一覧-->
 <% @posts.each do |post| %>
-<div>
-  <%= image_tag post.get_image(200,200) %>
-  <%= link_to post.user.full_name, public_user_path(post.user_id) %>
-  <%= post.place %>
-  <%= post.explaination %>
-  <% if post.user == current_user %>
-    <%= link_to "編集", edit_public_post_path(post.id) %>
-    <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-  <% end %>
-</div>
-<!--いいねボタン-->
-<!--ログインしているときはいいねできる-->
-<% if user_signed_in? %>
-  <div id="like_buttons_<%= post.id %>">
-    <%= render "public/likes/like", post: post %>
+  <div>
+    <%= image_tag post.get_image(200,200) %>
+    <!--いいねボタン。ログインしているときはいいねできる-->
+    <% if user_signed_in? %>
+      <p id="like_buttons_<%= post.id %>">
+        <%= render "public/likes/like", post: post %>
+      </p>
+    <% else %>
+      <i class="fas fa-thumbs-up fa-lg"></i><%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
+    <% end %>
+
+    <%= link_to post.user.full_name, public_user_path(post.user_id) %>
+    <%= post.place %>
+    <%= post.explaination %>
+    <%= link_to "コメントする", public_post_path(post.id) %>
+    <% if post.user == current_user %>
+      <%= link_to "編集", edit_public_post_path(post.id) %>
+      <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    <% end %>
   </div>
-<% else %>
-  <i class="fas fa-thumbs-up fa-lg"></i><%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
 <% end %>
-
-<div>
-  <%= post.user.university %>
-  <%= post.user.area %>
-  <%= post.user.country %>
-  <%= post.user.introduction %>
-
-</div>
-<% end %>
-
-<script>
-  console.log($("#like_buttons_1").html());
-</script>

@@ -1,41 +1,28 @@
 <h2>マイページ</h2>
 <!--投稿者の投稿一覧-->
 <% @posts.each do |post| %>
-<div>
-  <%= image_tag post.get_image(200,200) %>
-</div>
-
-<div>
-  <p><%= post.place %></p>
-  <p><%= post.explaination %></p>
-  <% if post.user == current_user %>
-    <%= link_to "編集", edit_public_post_path(post.id) %>
-    <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-  <% end %>
-</div>
-<% end %>
-
-<div>
-  <p><%= link_to "新規投稿", new_public_post_path %></p>
-</div>
-
-<!--投稿者の情報詳細-->
-<div>
-  <p>留学先大学名：<%= @user.university %></p>
-  <p>地域名：<%= @user.area %></p>
-  <p>国名：<%= @user.country %></p>
-  <p>自己紹介：<%= @user.introduction %></p>
-  <p><%= link_to "編集する", edit_public_user_path(@user) %></p>
-  <p><%= link_to "フォロー", public_user_followings_path(@user.id) %>：<%= @user.followings.count %></p>
-  <p><%= link_to "フォロワー", public_user_followers_path(@user.id) %>：<%= @user.followers.count %></p>
-  <!--フォロー機能-->
-  <% if @user != current_user %>
   <div>
-    <% if current_user.following?(@user) %>
-      <%= link_to "フォロー外す", public_user_relationships_path(@user), method: :delete %>
+    <%= image_tag post.get_image(200,200) %>
+    <!--いいねボタン。ログインしているときはいいねできる-->
+    <% if user_signed_in? %>
+      <p id="like_buttons_<%= post.id %>">
+        <%= render "public/likes/like", post: post %>
+      </p>
     <% else %>
-      <%= link_to "フォローする", public_user_relationships_path(@user.id), method: :post %>
+      <i class="fas fa-thumbs-up fa-lg"></i><%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
+    <% end %>
+    
+    <p><%= post.place %></p>
+    <p><%= post.explaination %></p>
+    <% if post.user == current_user %>
+      <%= link_to "編集", edit_public_post_path(post.id) %>
+      <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
     <% end %>
   </div>
-  <% end %>
+<% end %>
+
+<!--サイドバー-->
+<div>
+  <p><%= link_to "新規投稿", new_public_post_path %></p>
+  <%= render 'public/posts/sidebar', user: @user %>
 </div>

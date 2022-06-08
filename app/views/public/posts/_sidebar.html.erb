@@ -1,0 +1,18 @@
+<!--サイドバー-->
+
+<!--投稿者の情報詳細-->
+  <p>留学先大学名：<%= user.university %></p>
+  <p>地域名：<%= user.area %></p>
+  <p>国名：<%= user.country %></p>
+  <p>自己紹介：<%= user.introduction %></p>
+  <p><%= link_to "編集する", edit_public_user_path(user) %></p>
+  <p><%= link_to "フォロー", public_user_followings_path(user.id) %>：<%= user.followings.count %></p>
+  <p><%= link_to "フォロワー", public_user_followers_path(user.id) %>：<%= user.followers.count %></p>
+  <!--フォロー機能-->
+  <% if user != user %>
+    <% if user.following?(user) %>
+      <%= link_to "フォロー外す", public_user_relationships_path(user), method: :delete %>
+    <% else %>
+      <%= link_to "フォローする", public_user_relationships_path(user.id), method: :post %>
+    <% end %>
+  <% end %>
