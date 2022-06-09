@@ -17,7 +17,7 @@
             <%= render "public/likes/like", post: post %>
           </p>
         <% else %>
-          <i class="fas fa-thumbs-up fa-2x"></i><%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
+          <i class="fas fa-thumbs-up fa-2x"></i>&emsp;<%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
         <% end %>
 
         <p><%= post.place %></p>
@@ -37,6 +37,6 @@
     <!--サイドバー-->
     <div class="col-md-4">
       <p><%= link_to "新規投稿", new_public_post_path %></p>
-      <%= render 'public/posts/sidebar', user: @user %>
+      <%= render 'public/posts/sidebar', user: current_user %>
     </div>
   </div>

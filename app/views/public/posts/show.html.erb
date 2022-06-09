@@ -12,7 +12,7 @@
           <%= render "public/likes/like", post: @post %>
         </p>
       <% else %>
-        <i class="fas fa-thumbs-up fa-2x"></i><%= @post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
+        <i class="fas fa-thumbs-up fa-2x"></i>&emsp;<%= @post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
       <% end %>
       <p>
         <%= link_to public_user_path(@post.user) do %>
