@@ -1,1 +1,2 @@
+$(".post_comments-counter").html("<%= j(render 'public/post_comments/counter', post: @post) %>");
 $("#comments_area").html("<%= j(render 'public/post_comments/post_comments', post: @post) %>");

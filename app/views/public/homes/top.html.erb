@@ -1,24 +1,42 @@
 <h2>新着投稿</h2>
 <!--トップページの投稿一覧-->
-<% @posts.each do |post| %>
-  <div>
-    <%= image_tag post.get_image(200,200) %>
-    <!--いいねボタン。ログインしているときはいいねできる-->
-    <% if user_signed_in? %>
-      <p id="like_buttons_<%= post.id %>">
-        <%= render "public/likes/like", post: post %>
-      </p>
-    <% else %>
-      <i class="fas fa-thumbs-up fa-lg"></i><%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
-    <% end %>
-
-    <%= link_to post.user.full_name, public_user_path(post.user_id) %>
-    <%= post.place %>
-    <%= post.explaination %>
-    <%= link_to "コメントする", public_post_path(post.id) %>
-    <% if post.user == current_user %>
-      <%= link_to "編集", edit_public_post_path(post.id) %>
-      <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<div class="row">
+  <div class="col-md-9">
+    <% @posts.each do |post| %>
+      <div>
+        <%= link_to public_post_path(post) do %>
+          <%= image_tag post.get_image(250,250) %>
+        <% end %>
+        <!--いいねボタン。ログインしているときはいいねできる-->
+        <% if user_signed_in? %>
+          <p id="like_buttons_<%= post.id %>">
+            <%= render "public/likes/like", post: post %>
+          </p>
+        <% else %>
+          <i class="fas fa-thumbs-up fa-2x"></i><%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
+        <% end %>
+        <p>
+          <%= link_to public_user_path(post.user) do %>
+            <%= image_tag post.user.get_profile_image(40,40) %>
+            <%= post.user.full_name %>
+          <% end %>
+        </p>
+        <p><%= post.place %></p>
+        <p><%= post.explaination %></p>
+        <p>
+          <%= render 'public/post_comments/counter', post: post %>
+          <%= link_to "コメントする", public_post_path(post.id) %>
+        <p>
+        <% if post.user == current_user %>
+          <%= link_to "編集", edit_public_post_path(post.id) %>
+          <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <% end %>
+      </div>
     <% end %>
   </div>
-<% end %>
+
+  <div class="col-md-3">
+    <p>タグ検索欄</p>
+  </div>
+</div>
+

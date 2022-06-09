@@ -1,5 +1,5 @@
 <% if post.post_comments.present? %>
-  <% post.post_comments.each do |post_comment| %>
+  <% post.post_comments.reverse.each do |post_comment| %>
     <p><%= post_comment.user.full_name %></p>
     <p><%= post_comment.comment %></p>
     <% if post_comment.user == current_user %>
