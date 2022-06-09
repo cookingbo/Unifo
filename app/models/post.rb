@@ -15,9 +15,12 @@ class Post < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-
+  
+  # 引数で渡されたユーザidがFavoritesテーブル内に存在するかどうかを調べる
   def liked_by?(user)
     likes.exists?(user_id: user.id)
   end
+  
+  
 
 end

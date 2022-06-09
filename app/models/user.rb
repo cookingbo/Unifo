@@ -28,10 +28,6 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  def full_name
-    self.last_name + " " + self.first_name
-  end
-
   # フォローした時
   def follow(user_id)
     relationships.create(followed_id: user_id)

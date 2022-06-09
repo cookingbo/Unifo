@@ -4,7 +4,7 @@
   <p>
     <%= link_to public_user_path(user) do %>
       <%= image_tag user.get_profile_image(40,40) %>
-      <%= user.full_name %>
+      <%= user.name %>
     <% end %>
   </p>
   <p>留学先大学名：<%= user.university %></p>

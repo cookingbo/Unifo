@@ -2,10 +2,10 @@
   <% if @user == current_user %>
     <h2>マイページ</h2>
   <% else %>
-    <h2><%= @user.full_name %></h2>
+    <h2><%= @user.name %></h2>
   <% end %>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
       <% @posts.each do |post| %>
       <div>
         <%= link_to public_post_path(post) do %>
@@ -35,7 +35,7 @@
     </div>
 
     <!--サイドバー-->
-    <div class="col-md-3">
+    <div class="col-md-4">
       <p><%= link_to "新規投稿", new_public_post_path %></p>
       <%= render 'public/posts/sidebar', user: @user %>
     </div>

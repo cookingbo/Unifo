@@ -1,7 +1,7 @@
 <h2>新着投稿</h2>
 <!--トップページの投稿一覧-->
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-8">
     <% @posts.each do |post| %>
       <div>
         <%= link_to public_post_path(post) do %>
@@ -18,7 +18,7 @@
         <p>
           <%= link_to public_user_path(post.user) do %>
             <%= image_tag post.user.get_profile_image(40,40) %>
-            <%= post.user.full_name %>
+            <%= post.user.name %>
           <% end %>
         </p>
         <p><%= post.place %></p>
@@ -35,7 +35,7 @@
     <% end %>
   </div>
 
-  <div class="col-md-3">
+  <div class="col-md-4">
     <p>タグ検索欄</p>
   </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_05_123230) do
+ActiveRecord::Schema.define(version: 2022_06_09_102430) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -88,12 +88,10 @@ ActiveRecord::Schema.define(version: 2022_06_05_123230) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
+    t.string "name"
     t.string "university"
     t.string "area"
+    t.string "country_code", default: "JP"
     t.string "country"
     t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
