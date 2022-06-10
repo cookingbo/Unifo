@@ -28,9 +28,9 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # devise_parameter_sanitizerでkeys内のカラムのデータの操作を可能にする。
+  # devise_parameter_sanitizerでkeys内のカラムのデータの操作を可能にする。デフォルトでないカラムは追加しないといけない。
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :university, :area, :country, :introduction])
   end
 
 end
