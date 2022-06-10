@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   # 会員側ルーティング
   namespace :public do
+    get "search" => "searches#search"
     # postsに対してlikesとpost_commentsをネストする。
     resources :posts do
       resource :likes, only: [:create, :destroy] # 1つの投稿に対して1回だけしかいいねできないため、resourceとすることでいいねのidを含めない形にした

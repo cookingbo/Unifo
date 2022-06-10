@@ -90,13 +90,11 @@ ActiveRecord::Schema.define(version: 2022_06_09_102430) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "university", null: false
-    t.string "area", null: false
+    t.integer "area", null: false
     t.string "country_code", default: "JP"
-    t.string "country", null: false
     t.text "introduction", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

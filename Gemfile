@@ -57,4 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'jquery-rails'
 gem 'pry-rails'
-gem 'carmen-rails', '~> 1.0.0'
+gem 'country_select', '~> 6.1', '>= 6.1.1'
+gem 'rails-i18n', '~> 6.0'

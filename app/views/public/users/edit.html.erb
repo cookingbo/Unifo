@@ -19,12 +19,12 @@
 
   <div class="field">
     <%= f.label :area %><br />
-    <%= f.text_field :area %>
+    <%= f.select :area, User.areas.keys, class: "area" %>
   </div>
 
   <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
+    <%= f.label :country_code %><br />
+    <%= f.country_select :country_code %>
   </div>
 
   <div class="field">

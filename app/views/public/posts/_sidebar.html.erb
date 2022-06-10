@@ -9,7 +9,7 @@
   </p>
   <p>留学先大学名：<%= user.university %></p>
   <p>地域名：<%= user.area %></p>
-  <p>国名：<%= user.country %></p>
+  <p>国名：<%= user.country_code %></p>
   <p>自己紹介：<%= user.introduction %></p>
   <p><%= link_to "編集する", edit_public_user_path(user) %></p>
   <p><%= link_to "フォロー", public_user_followings_path(user.id) %>：<%= user.followings.count %></p>
