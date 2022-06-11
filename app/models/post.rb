@@ -1,11 +1,15 @@
 class Post < ApplicationRecord
-
+  # アソシエーション
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
   # 画像投稿のimageカラムとして扱う
   has_one_attached :image
+
+  # バリデーション
+  validates :place, presence: true
+  validates :explaination, presence: true
 
   # get_imageを定義づけ
   def get_image(width, height)

@@ -17,11 +17,11 @@
       <nav class="navbar navbar-expand-lg navbar-light" style="height: 100px; background-color: #e3f2fd;">
         <div class="container-fluid">
           <% if user_signed_in? %>
-          <a class="navbar-brand fs-1 text" href="/">Unifo</a>
+            <a class="navbar-brand fs-1 text" href="/">Unifo</a>
           <% elsif admin_signed_in? %>
-          <a class="navbar-brand fs-1 text" href="/admin">Unifo</a>
+            <a class="navbar-brand fs-1 text" href="/admin">Unifo</a>
           <% else %>
-          <a class="navbar-brand fs-1 text" href="/">Unifo</a>
+            <a class="navbar-brand fs-1 text" href="/">Unifo</a>
           <% end %>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -74,6 +74,7 @@
       </nav>
     </header>
     <main>
+      <%= flash[:notice] %>
       <div class="container">
     <%= yield %>
       </div>

@@ -1,6 +1,7 @@
 <h2>新規投稿</h2>
 
 <%= form_with model: @post, url: public_posts_path, method: :post do |f| %>
+<%= render 'public/posts/error', post: @post %>
 <div>
   <%= f.label :image %><br>
   <%= f.file_field :image, accept: "image/*" %>

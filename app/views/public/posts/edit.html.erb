@@ -1,6 +1,7 @@
 <h2>投稿編集</h2>
 
 <%= form_with model: @post, url: public_post_path(@post), method: :patch do |f| %>
+<%= render 'public/posts/error', post: @post %>
 <div>
   <%= f.label :image %><br>
   <%= f.file_field :image, accept: "image/*" %>

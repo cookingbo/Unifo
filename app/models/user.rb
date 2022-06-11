@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # アソシエーション
   has_many :posts,         dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :likes,         dependent: :destroy
@@ -17,7 +18,15 @@ class User < ApplicationRecord
   # フォロワー
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
+  # ユーザのprofile_imageカラムとして扱う
   has_one_attached :profile_image
+
+  # バリデーション
+  validates :name, presence: true
+  validates :university, presence: true
+  validates :area, presence: true
+  validates :introduction, presence: true
+
 
   # get_imageを定義づけ
   def get_profile_image(width, height)
