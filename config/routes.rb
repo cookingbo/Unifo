@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     end
     # usersに対してrelationshipsをネストする。
     resources :users, only: [:show, :edit, :update] do
+      member do # user.idが含まれているurlを作成することができる
+        get :likes
+      end
       resource :relationships, only: [:create, :destroy] # 1人のユーザに対して一度しかフォローできないため、resourceとすることでidを含めない形にした。
       get "followings" => "relationships#followings", as: "followings"
       get "followers" => "relationships#followers", as: "followers"
@@ -40,7 +43,5 @@ Rails.application.routes.draw do
       get "followers" => "relationships#followers", as: "followers"
     end
   end
-
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

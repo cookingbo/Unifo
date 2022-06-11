@@ -1,0 +1,28 @@
+<h2>いいね</h2>
+
+<% if @like_posts %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+        <th>place</th>
+        <th>explaination</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @like_posts.each do |like_post| %>
+      <tr>
+        <td><%= image_tag like_post.get_image(50,50) %></td>
+        <td><%= like_post.user.name %></td>
+        <td><%= like_post.place %></td>
+        <td><%= like_post.explaination %></td>
+        <td><%= link_to "詳細", public_user_path(like_post.user) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>いいねした投稿はありません。</p>
+<% end %>

@@ -5,6 +5,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:post_id])
     @user = User.find(params[:id])
     @posts = @user.posts.order("created_at desc")
   end
