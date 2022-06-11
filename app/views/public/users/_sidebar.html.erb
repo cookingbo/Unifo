@@ -1,5 +1,4 @@
 <!--サイドバー-->
-
 <!--投稿者の情報詳細-->
   <p>
     <%= link_to public_user_path(user) do %>
@@ -11,7 +10,9 @@
   <p>地域名：<%= user.area %></p>
   <p>国名：<%= user.country_code %></p>
   <p>自己紹介：<%= user.introduction %></p>
+  <% if user == current_user %>
   <p><%= link_to "編集する", edit_public_user_path(user) %></p>
+  <% end %>
   <p><%= link_to "フォロー", public_user_followings_path(user.id) %>：<%= user.followings.count %></p>
   <p><%= link_to "フォロワー", public_user_followers_path(user.id) %>：<%= user.followers.count %></p>
   <!--フォロー機能-->

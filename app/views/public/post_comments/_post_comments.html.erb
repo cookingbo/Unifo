@@ -1,6 +1,11 @@
 <% if post.post_comments.present? %>
   <% post.post_comments.reverse.each do |post_comment| %>
-    <p><%= post_comment.user.full_name %></p>
+    <p>
+      <%= link_to public_user_path(post_comment.user) do %>
+        <%= image_tag post_comment.user.get_profile_image(30,30) %>
+        <%= post_comment.user.name %>
+      <% end %>
+    </p>
     <p><%= post_comment.comment %></p>
     <% if post_comment.user == current_user %>
     <%= link_to "削除", public_post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>

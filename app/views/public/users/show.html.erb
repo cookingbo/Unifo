@@ -1,4 +1,4 @@
-  <!--投稿者の投稿一覧-->
+  <!--投稿者のプロフィール-->
   <% if @user == current_user %>
     <h2>マイページ</h2>
   <% else %>
@@ -8,9 +8,11 @@
     <div class="col-md-8">
       <% @posts.each do |post| %>
       <div>
-        <%= link_to public_post_path(post) do %>
-          <%= image_tag post.get_image(250,250) %>
-        <% end %>
+        <p>
+          <%= link_to public_post_path(post) do %>
+            <%= image_tag post.get_image(250,250) %>
+          <% end %>
+        </p>
         <!--いいねボタン。ログインしているときはいいねできる-->
         <% if user_signed_in? %>
           <p id="like_buttons_<%= post.id %>">
@@ -36,7 +38,9 @@
 
     <!--サイドバー-->
     <div class="col-md-4">
-      <p><%= link_to "新規投稿", new_public_post_path %></p>
-      <%= render 'public/posts/sidebar', user: current_user %>
+      <% if @user == current_user %>
+        <p><%= link_to "新規投稿", new_public_post_path %></p>
+      <% end %>
+      <%= render 'public/users/sidebar', user: @user %>
     </div>
   </div>
