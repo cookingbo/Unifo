@@ -1,8 +1,7 @@
-<h2>検索結果</h2>
 <!--検索対象モデルがUserの時 -->
 <table class="table table-hover table-inverse">
   <% if @range == "User" %>
-  <h3>ユーザ検索 "<%= @word %>"</h3>
+  <h2>"<%= @word %>"の検索結果</h2>
   <tbody>
     <% @users.each do |user| %>
     <tr>
@@ -12,20 +11,24 @@
         <% end %>
       </td>
       <td><%= link_to user.name, public_user_path(user) %></td>
+      <td><%= link_to user.post.place, public_post_path(user.post)%></td>
     </tr>
     <% end %>
   </tbody>
   <% else %>
   <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
-  <h3>場所検索 "<%= @word %>"</h3>
+  <h2> "<%= @word %>"の検索結果</h2>
   <tbody>
     <% @posts.each do |post| %>
-      <%= link_to public_post_path(post) do %>
       <tr>
-        <td><%= image_tag post.get_image(50,50) %></td>
-        <td><%= post.place %></td>
+        <td>
+          <%= link_to public_post_path(post) do %>
+            <%= image_tag post.get_image(50,50) %>
+          <% end %>
+        </td>
+        <td><%= link_to post.user.name, public_user_path(post.user) %></td>
+        <td><%= link_to post.place, public_post_path(post) %></td>
       </tr>
-      <% end %>
     <% end %>
   </tbody>
   <% end %>
