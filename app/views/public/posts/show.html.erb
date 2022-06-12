@@ -14,6 +14,7 @@
       <% else %>
         <i class="fas fa-thumbs-up fa-2x"></i>&emsp;<%= @post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
       <% end %>
+      <p><%= localize @post.created_at, format: :short %></p>
       <p>
         <%= link_to public_user_path(@post.user) do %>
           <%= image_tag @post.user.get_profile_image(40,40) %>

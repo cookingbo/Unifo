@@ -18,15 +18,14 @@ class User < ApplicationRecord
   # フォロワー一覧
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
-  # ユーザのprofile_imageカラムとして扱う
-  has_one_attached :profile_image
-
   # バリデーション
   validates :name, presence: true
   validates :university, presence: true
   validates :area, presence: true
   validates :introduction, presence: true
 
+  # ユーザのprofile_imageカラムとして扱う
+  has_one_attached :profile_image
 
   # get_imageを定義づけ
   def get_profile_image(width, height)

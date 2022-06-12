@@ -21,7 +21,7 @@
         <% else %>
           <i class="fas fa-thumbs-up fa-2x"></i>&emsp;<%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
         <% end %>
-
+        <p><%= localize post.created_at, format: :short %></p>
         <p><%= post.place %></p>
         <p><%= post.explaination %></p>
         <p>
