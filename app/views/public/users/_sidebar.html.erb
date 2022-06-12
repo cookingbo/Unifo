@@ -14,7 +14,7 @@
   <p><%= link_to "編集する", edit_public_user_path(user) %></p>
   <% end %>
   <% if user.name != "採用ご担当者様"%>
-  <p><%= link_to '',edit_user_path(user) %></p>
+  <p><%= link_to '', edit_public_user_path(user) %></p>
   <% end %>
   <p><%= link_to "いいね", likes_public_user_path(user) %></p>
   <p><%= link_to "フォロー", public_user_followings_path(user) %>：<%= user.followings.count %></p>
