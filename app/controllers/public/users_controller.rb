@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :ensure_guest_user, only: [:edit]
 
   def show
     @user = User.find(params[:id])
@@ -29,6 +30,14 @@ class Public::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :university, :area, :country_code, :country, :introduction, :email, :password, :is_deleted, :profile_image)
+  end
+
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.name == "採用ご担当者様"
+      flash[:notice] =  '採用ご担当者様はプロフィール編集画面へ遷移できません。'
+      redirect_to public_user_path(current_user)
+    end
   end
 
 end

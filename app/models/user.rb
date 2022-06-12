@@ -13,9 +13,9 @@ class User < ApplicationRecord
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   # フォローされたユーザ(foreign_key(親子関係)でrelationshipのカラムを取ってくる)
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  # フォロー
+  # フォロー一覧
   has_many :followings, through: :relationships, source: :followed
-  # フォロワー
+  # フォロワー一覧
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
   # ユーザのprofile_imageカラムとして扱う
@@ -50,6 +50,7 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  # ユーザと投稿検索の定義づけ
   def self.looks(search, word)
     if search == "perfect_match"
       @user = User.where("name LIKE?", "#{word}")
@@ -60,6 +61,14 @@ class User < ApplicationRecord
     end
   end
 
+  def self.guest
+    find_or_create_by!(name: '採用ご担当者様', email: 'guest@guest.com', university: 'DMM大学', area: 'アジア', country_code: '日本', introduction: '採用ご担当者様のプロフィールです。') do |user| # データの検索と作成を自動的に判断する
+      user.password = SecureRandom.urlsafe_base64 # ランダムな文字列を作成。これでパスワードが自動で作成される
+      user.name = "採用ご担当者様"
+    end
+  end
+
+  # エリア選択
   enum area: {
     "北アメリカ":0, "南アメリカ":1, "アジア":2, "南アフリカ":3, "オセアニア":4, "ヨーロッパ":5
   }
