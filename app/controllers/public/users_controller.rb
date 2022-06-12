@@ -1,9 +1,22 @@
 class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
+  before_action :authenticate_user!
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order("created_at desc")
+  end
+
+  def withdrawal
+    @user = User.find(params[:id])
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行致しました"
+    redirect_to "/"
+  end
+
+  def unsubscribe
   end
 
   def likes

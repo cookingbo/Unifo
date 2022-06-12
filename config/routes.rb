@@ -16,7 +16,12 @@ Rails.application.routes.draw do
 
   # 会員側ルーティング
   namespace :public do
+    # 検索結果画面
     get "search" => "searches#search"
+    # 退会確認画面
+    get "/users/:id/unsubscribe" => "users#unsubscribe", as: "unsubscribe"
+    # 論理削除用のルーティング
+    patch "/users/:id/withdrawal" => "users#withdrawal", as: "withdrawal"
     # postsに対してlikesとpost_commentsをネストする。
     resources :posts do
       resource :likes, only: [:create, :destroy] # 1つの投稿に対して1回だけしかいいねできないため、resourceとすることでいいねのidを含めない形にした
@@ -43,7 +48,7 @@ Rails.application.routes.draw do
       get "followers" => "relationships#followers", as: "followers"
     end
   end
-  
+
   # ゲストログイン用のパス
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'

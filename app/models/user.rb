@@ -68,6 +68,11 @@ class User < ApplicationRecord
     end
   end
 
+ # is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
   # エリア選択
   enum area: {
     "北アメリカ":0, "南アメリカ":1, "アジア":2, "南アフリカ":3, "オセアニア":4, "ヨーロッパ":5

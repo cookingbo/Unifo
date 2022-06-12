@@ -37,6 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.integer :area, null: false
       t.string :country_code, default: "JP"
       t.text :introduction, null: false
+      t.boolean :is_deleted, defalt: false
       t.timestamps null: false
     end
 
