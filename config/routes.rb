@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-    root to: "public/homes#top"
+    root to: "public/posts#top"
     get "about" => 'public/homes#about'
 
   # 会員側ルーティング

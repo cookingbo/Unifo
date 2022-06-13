@@ -29,6 +29,9 @@
           </p>
           <p><%= post.place %></p>
           <p><%= post.explaination %></p>
+          <% post.tags.each do |tag| %>
+            <span>#<%= tag.name %></span>
+          <% end %>
           <p>
             <%= render 'public/post_comments/counter', post: post %>
             <%= link_to "コメントする", public_post_path(post.id), class: "text-decoration-none" %>
@@ -49,7 +52,16 @@
   </div>
 
   <div class="col-md-4">
-    <p>タグ検索欄</p>
+    <h3>タグ検索欄</h3>
+    <%= form_tag "/", method: :get do %>
+      <%= select_tag :tag_id,
+         options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+         {
+           prompt: 'タグで絞り込み検索',
+           onchange: 'submit(this.form);'
+         }
+      %>
+    <% end %>
   </div>
 </div>
 

@@ -6,3 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create(email: "admin@admin.co.jp", password: "123456")
+Tag.create([
+  {name: '留学'},
+  {name: '海外'},
+  {name: '学部'},
+  {name: '交換'},
+  {name: '英語'},
+  {name: '語学'}
+])

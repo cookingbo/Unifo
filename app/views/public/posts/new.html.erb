@@ -14,6 +14,16 @@
   <%= f.label :explaination %><br>
   <%= f.text_area :explaination %>
 </div>
+<div>
+  <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+    <div>
+      <%= tag.label class: 'form-check-label' do %>
+        <%= tag.check_box class: 'form-check-input' %>
+        #<%= tag.text %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
 <%= f.submit "投稿" %>
 <% end %>

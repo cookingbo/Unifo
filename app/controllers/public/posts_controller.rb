@@ -1,6 +1,10 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
 
+  def top
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.order("created_at desc")
+  end
+
   def new
     @post = Post.new
   end
@@ -48,6 +52,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :image, :place, :explaination)
+    params.require(:post).permit(:user_id, :image, :place, :explaination, tag_ids: [])
   end
 end
