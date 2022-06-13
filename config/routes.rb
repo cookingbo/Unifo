@@ -40,8 +40,8 @@ Rails.application.routes.draw do
 
   # 管理者側ルーティング
   namespace :admin do
-    root to: "homes#top"
-    resources :posts, only: [:index, :show]
+    root to: "posts#index"
+    resources :posts, only: [:show]
     resources :users, only: [:index, :show] do
       resource :relationships, only: [:create, :destroy] # 1人のユーザに対して一度しかフォローできないため、resourceとすることでidを含めない形にした。
       get "followings" => "relationships#followings", as: "followings"
