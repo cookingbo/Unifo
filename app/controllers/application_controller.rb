@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_posts_path
     when User
-      "/"
+      root_path
     end
   end
 
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     if resource == :admin
       new_admin_session_path
     else
-      "/"
+      root_path
     end
   end
 

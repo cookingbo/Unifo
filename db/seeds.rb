@@ -8,9 +8,14 @@
 Admin.create(email: "admin@admin.co.jp", password: "123456")
 Tag.create([
   {name: '留学'},
-  {name: '海外'},
   {name: '学部'},
   {name: '交換'},
   {name: '英語'},
-  {name: '語学'}
+  {name: '語学'},
+  {name: '北アメリカ'},
+  {name: '南アメリカ'},
+  {name: 'アジア'},
+  {name: 'オセアニア'},
+  {name: 'アフリカ'},
+  {name: 'ヨーロッパ'}
 ])
