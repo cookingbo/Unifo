@@ -9,6 +9,7 @@
       <th>Area</th>
       <th>Country</th>
       <th>introduction</th>
+      <th>ステータス</th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +25,17 @@
       <td><%= user.area %></td>
       <td><%= user.country_code %></td>
       <td><%= user.introduction %></td>
+      <td>
+        <% if user.is_deleted == false %>
+        <p>
+        <strong class="text-success">有効</strong>
+        </p>
+        <% else %>
+        <p>
+          <strong class="text-danger">退会済み</strong>
+        </p>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
