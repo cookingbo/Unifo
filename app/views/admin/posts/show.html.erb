@@ -10,7 +10,7 @@
       <p><i class="fas fa-thumbs-up fa-2x"></i>&emsp;<%= @post.likes.count %></p><!--ログインしていないときはいいねカウントのみ-->
       <p>
         <%= link_to admin_user_path(@post.user) do %>
-          <%= image_tag @post.user.get_profile_image(40,40) %>
+          <%= image_tag @post.user.get_profile_image(30,30), class: "rounded-circle" %>
           <%= @post.user.name %>
         <% end %>
       </p>

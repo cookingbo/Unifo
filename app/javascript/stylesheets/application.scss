@@ -1,5 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 
-.header {
-  background-color: #008080;
+header {
+  border-bottom: solid 1px #BBBBBB;
+  height: 90px;
+}
+
+
+main {
+  background-color: #EEEEEE;
 }

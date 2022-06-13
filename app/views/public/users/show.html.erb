@@ -29,8 +29,12 @@
           <%= link_to "コメントする", public_post_path(post.id) %>
         <p>
         <% if post.user == current_user %>
-          <%= link_to "編集", edit_public_post_path(post.id) %>
-          <%= link_to "削除", public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+          <%= link_to edit_public_post_path(post.id) do %>
+            <i class="far fa-edit fa-lg"></i>
+          <% end %>
+          <%= link_to public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+            <i class="far fa-trash-alt fa-lg"></i>
+          <% end %>
         <% end %>
       </div>
       <% end %>

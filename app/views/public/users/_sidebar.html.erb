@@ -2,7 +2,7 @@
 <!--投稿者の情報詳細-->
   <p>
     <%= link_to public_user_path(user) do %>
-      <%= image_tag user.get_profile_image(40,40) %>
+      <%= image_tag user.get_profile_image(30,30), class: "rounded-circle" %>
       <%= user.name %>
     <% end %>
   </p>
@@ -10,10 +10,14 @@
   <p>地域名：<%= user.area %></p>
   <p>国名：<%= user.country_code %></p>
   <p>自己紹介：<%= user.introduction %></p>
+  <div class="row">
+    <% if user == current_user %>
+      <%= link_to edit_public_user_path(user) do %>
+        <i class="fas fa-user-edit"></i>
+      <% end %>
+    <% end %>
+  </div>
 
-  <% if user == current_user %>
-    <p><%= link_to "編集する", edit_public_user_path(user) %></p>
-  <% end %>
 
   <% if user.name != "採用ご担当者様" %>
     <p><%= link_to '', edit_public_user_path(user) %></p>
