@@ -61,9 +61,18 @@ ul {
 
 .search-box {
   position: absolute;
-  top: 20px;
+  top: 25px;
   right: 40px;
 }
+
+.search-form .search-button {
+  height: 25px;
+}
+
+.search-button {
+  padding: 0 6px;
+}
+
 
 html, body, main {
   height: 100%;
@@ -72,10 +81,18 @@ html, body, main {
 main {
   min-height: 100%;
   width: 100%;
+  padding: 10px 50px 0;
   background-color: #EEEEEE;
   justify-content: center;
 }
 
 body > main {
   height: auto;
+}
+
+main h2 {
+  color: #4682B4;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 25px;
 }
