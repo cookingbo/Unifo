@@ -10,8 +10,8 @@ class Post < ApplicationRecord
   has_one_attached :image
 
   # バリデーション
-  validates :place, presence: true
-  validates :explaination, presence: true
+  validates :place, presence: true, length: { in: 1..20 }
+  validates :explaination, presence: true, length: { in: 1..200 }
 
   # get_imageを定義づけ
   def get_image(width, height)

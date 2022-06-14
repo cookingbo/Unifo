@@ -8,6 +8,7 @@
 
 a {
   text-decoration: none;
+  color: #000000;
 }
 
 header {
@@ -30,9 +31,6 @@ header h1 a:visited, a:active {
   color: #000000;
 }
 
-h1 a {
-  color: #000000;
-}
 
 nav a:hover {
   color: #222222;
@@ -84,6 +82,7 @@ main {
   padding: 10px 50px 0;
   background-color: #EEEEEE;
   justify-content: center;
+  position: relative;
 }
 
 body > main {
@@ -94,5 +93,34 @@ main h2 {
   color: #4682B4;
   height: 50px;
   line-height: 50px;
-  padding-left: 25px;
+  padding-left: 45px;
 }
+
+.post {
+  display: flex;
+  height: 270px;
+  margin-bottom: 15px;
+}
+
+.post-image {
+  margin-bottom: 10px;
+}
+
+.post-image-item {
+  margin-bottom: 0;
+}
+
+.like-time {
+  margin-top: 5px;
+}
+
+.like-time a {
+  color: #4682B4;
+}
+
+.post-info {
+  margin-left: 25px;
+  width: 410px;
+  overflow-wrap: break-word;
+}
+

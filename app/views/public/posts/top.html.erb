@@ -6,20 +6,24 @@
       <% @posts.each do |post| %>
         <div class="post">
           <div class="post-image">
-            <p>
+            <p class="post-image-item">
               <%= link_to public_post_path(post) do %>
                 <%= image_tag post.get_image(250,250) %>
               <% end %>
             </p>
             <!--いいねボタン。ログインしているときはいいねできる-->
-            <% if user_signed_in? %>
-              <p id="like_buttons_<%= post.id %>">
-                <%= render "public/likes/like", post: post %>
-              </p>
-            <% else %>
-              <i class="far fa-thumbs-up fa-2x"></i>&emsp;<%= post.likes.count %><!--ログインしていないときはいいねカウントのみ-->
-            <% end %>
-            <p><%= localize post.created_at, format: :short %></p>
+              <% if user_signed_in? %>
+              <div class="like-time">
+                <p id="like_buttons_<%= post.id %>">
+                  <%= render "public/likes/like", post: post %>
+                </p>
+              </div>
+              <% else %>
+              <div class="like-time">
+                <%= localize post.created_at, format: :short %>&emsp;
+                <i class="far fa-thumbs-up fa-lg"></i><%= post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
+              </div>
+              <% end %>
           </div>
           <div class="post-info">
             <p>
@@ -37,7 +41,7 @@
               <%= render 'public/post_comments/counter', post: post %>
               <%= link_to "コメントする", public_post_path(post.id) %>
             </p>
-            <div>
+            <div class="edit-delete">
               <% if post.user == current_user %>
                 <%= link_to edit_public_post_path(post.id) do %>
                   <i class="far fa-edit fa-lg"></i>
