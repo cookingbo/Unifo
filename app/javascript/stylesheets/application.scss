@@ -82,7 +82,6 @@ main {
   padding: 10px 50px 0;
   background-color: #EEEEEE;
   justify-content: center;
-  position: relative;
 }
 
 body > main {
@@ -96,10 +95,20 @@ main h2 {
   padding-left: 45px;
 }
 
+main a:visited, a:active {
+  color: #000000;
+}
+
+.col-md-8 {
+  border-top: solid 1px #BBBBBB!important;
+}
+
 .post {
   display: flex;
   height: 270px;
-  margin-bottom: 15px;
+  margin: 15px;
+  border-bottom: solid 1px #BBBBBB;
+  position: relative;
 }
 
 .post-image {
@@ -114,13 +123,22 @@ main h2 {
   margin-top: 5px;
 }
 
-.like-time a {
-  color: #4682B4;
-}
-
 .post-info {
+  width: 500px;
   margin-left: 25px;
-  width: 410px;
   overflow-wrap: break-word;
 }
 
+.post-info p {
+  margin-bottom: 5px;
+}
+
+.post-info-item {
+  margin-top: 5px;
+}
+
+.edit-delete {
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
