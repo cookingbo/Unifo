@@ -9,6 +9,7 @@
 a {
   text-decoration: none;
   color: #000000;
+  font-weight: bold;
 }
 
 header {
@@ -89,7 +90,7 @@ body > main {
 }
 
 main h2 {
-  color: #4682B4;
+  color: #000000;
   height: 50px;
   line-height: 50px;
   padding-left: 45px;
@@ -142,3 +143,33 @@ main a:visited, a:active {
   top: 0;
   right: 5px;
 }
+
+.col-md-4 {
+  text-align: center;
+}
+
+.search-tag {
+  margin: 0 50px;
+  padding: 10px 0;
+  border: solid 1px #BBBBBB;
+  border-radius: 6px;
+}
+
+.user-info {
+  margin: 20px 50px 0;
+  padding: 10px 0;
+  border: solid 1px #BBBBBB;
+  border-radius: 6px;
+  position: relative;
+}
+
+.user-info p {
+  margin: 8px 0;
+}
+
+.user-edit {
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+

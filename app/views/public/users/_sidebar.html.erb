@@ -9,11 +9,11 @@
   <p>留学先大学名：<%= user.university %></p>
   <p>地域名：<%= user.area %></p>
   <p>国名：<%= user.country_code %></p>
-  <p>自己紹介：<%= user.introduction %></p>
-  <div class="row">
+  <p>自己紹介：<br><%= user.introduction %></p>
+  <div class="user-edit">
     <% if user == current_user %>
       <%= link_to edit_public_user_path(user) do %>
-        <i class="fas fa-user-edit"></i>
+        <i class="far fa-edit fa-lg"></i>
       <% end %>
     <% end %>
   </div>
@@ -23,9 +23,9 @@
     <p><%= link_to '', edit_public_user_path(user) %></p>
   <% end %>
 
-  <p><%= link_to "いいね", likes_public_user_path(user) %></p>
-  <p><%= link_to "フォロー", public_user_followings_path(user) %>：<%= user.followings.count %></p>
-  <p><%= link_to "フォロワー", public_user_followers_path(user) %>：<%= user.followers.count %></p>
+  <p><%= link_to "いいね's", likes_public_user_path(user) %></p>
+  <p><%= link_to "フォロー's", public_user_followings_path(user) %>：<%= user.followings.count %></p>
+  <p><%= link_to "フォロワー's", public_user_followers_path(user) %>：<%= user.followers.count %></p>
   <!--フォロー機能-->
   <% if user != current_user %>
     <% if current_user.following?(user) %>
@@ -33,6 +33,7 @@
     <% else %>
       <%= link_to "フォローする", public_user_relationships_path(user.id), method: :post %>
     <% end %>
-  <% else %>
+  <% elsif user.name != "採用ご担当者様" %>
     <%= link_to "退会手続きへ", public_unsubscribe_path(current_user) %>
+  <% else %>
   <% end %>
