@@ -1,37 +1,73 @@
 <!--会員情報編集ページ-->
 <h2>プロフィール設定</h2>
-<%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
-<%= render 'public/posts/error', post: @user %>
 
-  <div class="field">
-    <%= f.label :profile_image %><br />
-    <%= f.file_field :profile_image %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="edit-user">
+        <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
+        <div class="error-message">
+          <%= render 'public/posts/error', post: @user %>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 text-center fw-bold">
+            <%= f.label :profile_image %>
+          </div>
+          <div class="col-md-4">
+            <%= f.file_field :profile_image %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 text-center fw-bold">
+            <%= f.label :name %>
+          </div>
+          <div class="col-md-4 d-grid">
+            <%= f.text_field :name, autofocus: true %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 text-center fw-bold">
+            <%= f.label :university %>
+          </div>
+          <div class="col-md-4 d-grid">
+            <%= f.text_field :university %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 text-center fw-bold">
+            <%= f.label :area %>
+          </div>
+          <div class="col-md-4 d-grid">
+            <%= f.select :area, User.areas.keys, class: "area" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 text-center fw-bold">
+            <%= f.label :country_code %>
+          </div>
+          <div class="col-md-4 d-grid">
+            <%= f.country_select :country_code %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 text-center fw-bold">
+            <%= f.label :introduction %>
+          </div>
+          <div class="col-md-4 d-grid">
+            <%= f.text_area :introduction %>
+          </div>
+        </div>
+        <div class="text-center">
+          <%= f.submit "更新", class: "btn btn-outline-secondary" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="user-info">
+        <%= render 'public/users/sidebar', user: @user %>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :university %><br />
-    <%= f.text_field :university %>
-  </div>
-
-  <div class="field">
-    <%= f.label :area %><br />
-    <%= f.select :area, User.areas.keys, class: "area" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country_code %><br />
-    <%= f.country_select :country_code %>
-  </div>
-
-  <div class="field">
-    <%= f.label :introduction %><br />
-    <%= f.text_area :introduction %>
-  </div>
-
-  <%= f.submit "更新" %>
-<% end %>
