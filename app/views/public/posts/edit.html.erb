@@ -1,19 +1,46 @@
 <h2>投稿編集</h2>
 
-<%= form_with model: @post, url: public_post_path(@post), method: :patch do |f| %>
-<%= render 'public/posts/error', post: @post %>
-<div>
-  <%= f.label :image %><br>
-  <%= f.file_field :image, accept: "image/*" %>
-</div>
-<div>
-  <%= f.label :place %><br>
-  <%= f.text_field :place %>
-</div>
-<div>
-  <%= f.label :explaination %><br>
-  <%= f.text_area :explaination %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="edit-post">
+        <%= form_with model: @post, url: public_post_path(@post), method: :patch do |f| %>
+        <div class="error-message">
+          <%= render 'public/posts/error', post: @post %>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 text-center fw-bold">
+            <%= f.label :image %>
+          </div>
+          <div class="col-md-4">
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 text-center fw-bold">
+            <%= f.label :place %>
+          </div>
+          <div class="col-md-4">
+            <%= f.text_field :place %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 text-center fw-bold">
+            <%= f.label :explaination %>
+          </div>
+          <div class="col-md-4">
+            <%= f.text_area :explaination %>
+          </div>
+        </div>
+        <%= f.submit "更新", class: "btn btn-outline-secondary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="user-info">
+        <%= render 'public/users/sidebar', user: current_user %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= f.submit "更新" %>
-<% end %>

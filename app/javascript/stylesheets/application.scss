@@ -185,3 +185,27 @@ main a:visited, a:active {
 .comment {
   margin-left: 20px;
 }
+
+.new-post {
+  justify-content: center;
+  text-align: center;
+}
+
+.edit-post {
+  justify-content: center;
+  text-align: center;
+}
+
+.form-group {
+  margin: 10px 0;
+}
+
+.error-message ul {
+  list-style: none;
+  display: block;
+}
+
+.error-message li {
+  display: list-item;
+}
+
