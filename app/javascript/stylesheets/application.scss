@@ -72,6 +72,12 @@ ul {
   padding: 0 6px;
 }
 
+.notice {
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #555555;
+}
 
 html, body, main {
   height: 100%;
@@ -149,6 +155,7 @@ main a:visited, a:active {
 }
 
 .search-tag {
+  width: 320px;
   margin: 0 50px;
   padding: 10px 0;
   border: solid 1px #BBBBBB;
@@ -156,11 +163,13 @@ main a:visited, a:active {
 }
 
 .user-info {
+  width: 320px;
   margin: 20px 50px 0;
   padding: 10px 0;
   border: solid 1px #BBBBBB;
   border-radius: 6px;
   position: relative;
+  overflow-wrap: break-word;
 }
 
 .user-info p {
@@ -173,3 +182,6 @@ main a:visited, a:active {
   right: 5px;
 }
 
+.comment {
+  margin-left: 20px;
+}

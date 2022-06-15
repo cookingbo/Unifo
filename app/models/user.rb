@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :university, presence: true
   validates :area, presence: true
-  validates :introduction, presence: true
+  validates :introduction, presence: true, length: { in: 1..100 }
 
   # ユーザのprofile_imageカラムとして扱う
   has_one_attached :profile_image
