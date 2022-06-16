@@ -1,28 +1,41 @@
-<h2>いいね</h2>
+<!--いいね一覧-->
+<h2>いいね's</h2>
+<div class="row">
+  <div class="col-md-8">
+    <% if @like_posts %>
+    <table class="table table-bordered" style="table-layout:fixed;">
+      <thead class="table-light text-center">
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>場所</th>
+          <th style="width:400px;">内容</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <% @like_posts.each do |like_post| %>
+        <tr class="align-middle">
+          <td><%= image_tag like_post.get_image(50,50) %></td>
+          <td><%= link_to like_post.user.name, public_user_path(like_post.user) %></td>
+          <td><%= like_post.place %></td>
+          <td class="explaination text-break"><%= like_post.explaination %></td>
+          <td><%= link_to "詳細", public_user_path(like_post.user), class: "btn btn-outline-secondary" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+      <p>いいねしている投稿はありません</p>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <div class="user-info">
+      <%= render 'public/users/sidebar', user: @user %>
+    </div>
+  </div>
+</div>
 
-<% if @like_posts %>
-  <table class="table table-bordered" style="table-layout:fixed;">
-    <thead class="table-light text-center">
-      <tr>
-        <th style="width:200px;">#</th>
-        <th style="width:200px;">名前</th>
-        <th style="width:200px;">場所</th>
-        <th style="width:500px;">内容</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody class="text-center">
-      <% @like_posts.each do |like_post| %>
-      <tr class="align-middle">
-        <td><%= image_tag like_post.get_image(50,50) %></td>
-        <td><%= like_post.user.name %></td>
-        <td><%= like_post.place %></td>
-        <td class="explaination text-break"><%= like_post.explaination %></td>
-        <td><%= link_to "詳細", public_user_path(like_post.user), class: "btn btn-outline-secondary" %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>いいねしている投稿はありません</p>
-<% end %>
+
+
+

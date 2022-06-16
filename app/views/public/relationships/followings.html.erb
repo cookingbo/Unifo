@@ -1,28 +1,38 @@
-<h2>フォロー</h2>
+<!--フォロー一覧-->
+<h2>フォロー's</h2>
+<div class="row">
+  <div class="col-md-8">
+    <% if @users.exists? %>
+    <table class="table table-bordered" style="table-layout:fixed;">
+      <thead class="table-light text-center">
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>フォロー数</th>
+          <th>フォロワー数</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <% @users.each do |user| %>
+        <tr class="align-middle">
+          <td><%= image_tag user.get_profile_image(50,50), class: "rounded" %></td>
+          <td><%= user.name %></td>
+          <td>フォロー数: <%= user.followings.count %></td>
+          <td>フォロワー数: <%= user.followers.count %></td>
+          <td><%= link_to "詳細", public_user_path(user), class: "btn btn-outline-secondary" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+      <p>フォローしているユーザはいません</p>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <div class="user-info">
+      <%= render 'public/users/sidebar', user: @user %>
+    </div>
+  </div>
+</div>
 
-<% if @users.exists? %>
-  <table class="table table-bordered" style="table-layout:fixed;">
-    <thead class="table-light text-center">
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>フォロー数</th>
-        <th>フォロワー数</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody class="text-center">
-      <% @users.each do |user| %>
-      <tr class="align-middle">
-        <td><%= image_tag user.get_profile_image(80,80) %></td>
-        <td><%= user.name %></td>
-        <td>フォロー数: <%= user.followings.count %></td>
-        <td>フォロワー数: <%= user.followers.count %></td>
-        <td><%= link_to "詳細", public_user_path(user), class: "btn btn-outline-secondary" %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>フォローしているユーザはいません</p>
-<% end %>

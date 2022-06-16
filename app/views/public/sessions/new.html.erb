@@ -1,30 +1,18 @@
-<h2>会員ログイン</h2>
-
-<%= form_with model: @user, url: user_session_path do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!--会員ログイン-->
+<div class="wrapper">
+  <div action="" method="post" name="Login_Form" class="form-signin">
+    <h3 class="form-signin-heading">会員ログイン</h3>
+    <hr class="colorgraph"></hr>
+    <%= form_with model: @user, url: user_session_path do |f| %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "アカウント名", class: "form-control", :type => "text" %>
+    <%= f.password_field :password, autocomplete: "current-password", :placeholder => "パスワード", class: "form-control", :type => "password" %>
+      <% if devise_mapping.rememberable? %>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %><br>
+      <% end %>
+    <%= f.submit "Log in", class: "btn btn-outline-secondary btn-block" %><br>
+    <%= link_to "採用ご担当者様はこちらから", users_guest_sign_in_path, method: :post, class: "btn btn-outline-secondary" %><br>
+    <%= render "public/shared/links" %>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<div>
-  <%= link_to "採用ご担当者様はこちらから", users_guest_sign_in_path, method: :post %>
 </div>
-
-<%= render "public/shared/links" %>

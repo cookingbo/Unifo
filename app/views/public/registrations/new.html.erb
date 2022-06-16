@@ -1,54 +1,86 @@
-<h2>新規登録</h2>
 <!--会員新規登録ページ-->
-<%= form_with model: @user, url: user_registration_path do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+<h2>新規登録</h2>
 
-  <div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+  <%= form_with model: @user, url: user_registration_path do |f| %>
+  <div class="error-message">
+    <%= render "public/shared/error_messages", resource: resource %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :university %><br />
-    <%= f.text_field :university %>
+  <div class="form-group row">
+    <div class="col-md-6 text-center fw-bold">
+      <%= f.label :name %>
+    </div>
+    <div class="col-md-4 d-grid">
+      <%= f.text_field :name, autofocus: true, :placeholder => "アカウント名" %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :area %><br />
-    <%= f.select :area, User.areas.keys, class: "area" %>
+  <div class="form-group row">
+    <div class="col-md-6 text-center fw-bold">
+      <%= f.label :university %>
+    </div>
+    <div class="col-md-4 d-grid">
+      <%= f.text_field :university, :placeholder => "留学先大学名" %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :country_code %><br />
-    <%= f.country_select :country_code %>
+  <div class="form-group row">
+    <div class="col-md-6 text-center fw-bold">
+      <%= f.label :area %>
+    </div>
+    <div class="col-md-4 d-grid">
+      <%= f.select :area, User.areas.keys, class: "area" %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :introduction %><br />
-    <%= f.text_area :introduction %>
+  <div class="form-group row">
+    <div class="col-md-6 text-center fw-bold">
+      <%= f.label :country_code %>
+    </div>
+    <div class="col-md-4 d-grid">
+      <%= f.country_select :country_code %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+  <div class="form-group row">
+    <div class="col-md-6 text-center fw-bold">
+      <%= f.label :introduction %>
+    </div>
+    <div class="col-md-4 d-grid">
+      <%= f.text_area :introduction, :placeholder => "よろしくお願いします。" %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="form-group row">
+    <div class="col-md-6 text-center fw-bold">
+      <%= f.label :email %>
+    </div>
+    <div class="col-md-4 d-grid">
+      <%= f.email_field :email, autocomplete: "email", :placeholder => "unifo@unifo.com" %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-group row">
+    <div class="col-md-6 text-center fw-bold">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+    </div>
+    <div class="col-md-4 d-grid">
+      <%= f.password_field :password, autocomplete: "new-password", :placeholder => "パスワード" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-md-6 text-center fw-bold">
+      <%= f.label :password_confirmation %>
+    </div>
+    <div class="col-md-4 d-grid">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "確認用パスワード" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "　登録　", class: "btn btn-outline-secondary" %>
   </div>
 <% end %>
+<div class="actions">
+  <%= render "public/shared/links" %>
+</div>
 
-<%= render "public/shared/links" %>
+
+

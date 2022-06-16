@@ -1,36 +1,63 @@
-<!--検索対象モデルがUserの時 -->
-<table class="table table-hover table-inverse">
-  <% if @range == "ユーザ" %>
-  <h2>"<%= @word %>"の検索結果</h2>
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
-      <td>
-        <%= link_to public_user_path(user) do %>
-          <%= image_tag user.get_profile_image(50,50), class: "rounded-circle" %>
+<!--検索結果一覧-->
+<h2>"<%= @word %>"の検索結果</h2>
+<div class="row">
+  <div class="col-md-8">
+    <!--検索対象モデルがUserの時 -->
+    <table class="table table-bordered" style="table-layout:fixed;">
+      <% if @range == "ユーザ" %>
+      <thead class="table-light text-center">
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>大学名</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <% @users.each do |user| %>
+        <tr class="align-middle">
+          <td>
+            <%= link_to public_user_path(user) do %>
+              <%= image_tag user.get_profile_image(50,50), class: "rounded" %>
+            <% end %>
+          </td>
+          <td><%= link_to user.name, public_user_path(user) %></td>
+          <td><%= user.university %></td>
+          <td><%= link_to "詳細", public_user_path(user), class: "btn btn-outline-secondary" %></td>
+        </tr>
         <% end %>
-      </td>
-      <td><%= link_to user.name, public_user_path(user) %></td>
-      <td><%= user.university %></td>
-    </tr>
-    <% end %>
-  </tbody>
-  <% else %>
-  <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
-  <h2>"<%= @word %>"の検索結果</h2>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td>
-          <%= link_to public_post_path(post) do %>
-            <%= image_tag post.get_image(50,50) %>
-          <% end %>
-        </td>
-        <td><%= link_to post.user.name, public_user_path(post.user) %></td>
-        <td><%= link_to post.place, public_post_path(post) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  <% end %>
-</table>
+      </tbody>
+      <% else %>
+      <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
+      <thead class="table-light text-center">
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>場所</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <% @posts.each do |post| %>
+          <tr class="align-middle">
+            <td>
+              <%= link_to public_post_path(post) do %>
+                <%= image_tag post.get_image(50,50), class: "rounded" %>
+              <% end %>
+            </td>
+            <td><%= link_to post.user.name, public_user_path(post.user) %></td>
+            <td><%= post.place %></td>
+            <td><%= link_to "詳細", public_post_path(post), class: "btn btn-outline-secondary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
 
+  <div class="col-md-4">
+    <div class="user-info">
+      <%= render 'public/users/sidebar', user: current_user %>
+    </div>
+  </div>
+</div>
