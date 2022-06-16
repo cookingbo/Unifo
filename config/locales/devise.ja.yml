@@ -1,6 +1,10 @@
 ja:
   activerecord:
     attributes:
+      post:
+        image: 画像
+        place: 場所
+        explaination: 投稿内容
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
@@ -10,6 +14,7 @@ ja:
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
         name: アカウント名
+        profile_image: プロフィール画像
         university: 大学名
         area: 地域名
         country_code: 国名

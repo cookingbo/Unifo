@@ -16,7 +16,7 @@
       <tbody class="text-center">
         <% @like_posts.each do |like_post| %>
         <tr class="align-middle">
-          <td><%= image_tag like_post.get_image(50,50) %></td>
+          <td><%= image_tag like_post.get_image(50,50), class: "rounded" %></td>
           <td><%= link_to like_post.user.name, public_user_path(like_post.user) %></td>
           <td><%= like_post.place %></td>
           <td class="explaination text-break"><%= like_post.explaination %></td>

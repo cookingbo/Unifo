@@ -59,13 +59,13 @@
   <!--サイドバー-->
   <div class="col-md-4">
     <div class="search-tag">
-      <h4>タグ検索</h4>
+      <h6>#タグ検索</h6>
       <div class="tag-search">
         <%= form_tag "/", method: :get do %>
           <%= select_tag :tag_id,
              options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
              {
-               prompt: 'タグで絞り込み検索',
+               prompt: '#タグで絞り込み検索',
                onchange: 'submit(this.form);'
              }
           %>

@@ -27,6 +27,12 @@ class User < ApplicationRecord
   # ユーザのprofile_imageカラムとして扱う
   has_one_attached :profile_image
 
+  def country_name
+    country = ISO3166::Country[country_code]
+    country.translations[I18n.locale.to_s] || country.common_name || country.iso_short_name
+  end
+
+
   # get_imageを定義づけ
   def get_profile_image(width, height)
     unless profile_image.attached?

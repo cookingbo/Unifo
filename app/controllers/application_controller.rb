@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   # devise_parameter_sanitizerでkeys内のカラムのデータの操作を可能にする。デフォルトでないカラムは追加しないといけない。
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :university, :area, :country, :introduction])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :university, :area, :country_code, :introduction])
   end
 
 end
