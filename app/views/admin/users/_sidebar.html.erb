@@ -2,13 +2,13 @@
 <!--投稿者の情報詳細-->
   <p>
     <%= link_to admin_user_path(user) do %>
-      <%= image_tag user.get_profile_image(40,40), class: "rounded-circle" %>
+      <%= image_tag user.get_profile_image(30,30), class: "rounded-circle border border-muted" %>
       <%= user.name %>
     <% end %>
   </p>
   <p>留学先大学名：<%= user.university %></p>
   <p>地域名：<%= user.area %></p>
-  <p>国名：<%= user.country_code %></p>
-  <p>自己紹介：<%= user.introduction %></p>
-  <p><%= link_to "フォロー", admin_user_followings_path(user) %>：<%= user.followings.count %></p>
-  <p><%= link_to "フォロワー", admin_user_followers_path(user) %>：<%= user.followers.count %></p>
+  <p>国名：<%= user.country_name %></p>
+  <p>自己紹介：<br><%= user.introduction %></p>
+  <p><%= link_to "フォロー's", admin_user_followings_path(user) %>：<%= user.followings.count %></p>
+  <p><%= link_to "フォロワー's", admin_user_followers_path(user) %>：<%= user.followers.count %></p>

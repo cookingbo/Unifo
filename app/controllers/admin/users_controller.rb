@@ -5,7 +5,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:post_id])
     @user = User.find(params[:id])
     @posts = @user.posts.order("created_at desc")
   end
@@ -19,7 +18,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :university, :area, :country_code, :country, :introduction, :email, :password, :is_deleted, :profile_image)
+    params.require(:user).permit(:name, :university, :area, :country_code, :introduction, :is_deleted, :profile_image)
   end
 
 end

@@ -19,7 +19,7 @@
         <% else %>
         <div class="like-time">
           <%= localize @post.created_at, format: :short %>&emsp;
-          <i class="fas fa-thumbs-up fa-2x"></i>&emsp;<%= @post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
+          <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= @post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
         </div>
         <% end %>
       </div>
