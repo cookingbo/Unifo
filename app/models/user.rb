@@ -27,6 +27,7 @@ class User < ApplicationRecord
   # ユーザのprofile_imageカラムとして扱う
   has_one_attached :profile_image
 
+  # countries gemから情報を持ってくるメソッド
   def country_name
     country = ISO3166::Country[country_code]
     country.translations[I18n.locale.to_s] || country.common_name || country.iso_short_name
@@ -65,7 +66,8 @@ class User < ApplicationRecord
       @user = User.all
     end
   end
-
+  
+  # ゲストログイン時のユーザ情報を登録。パスワードは自動的に作成される。
   def self.guest
     find_or_create_by!(name: '採用ご担当者様', email: 'guest@guest.com', university: 'DMM大学', area: 'アジア', country_code: '日本', introduction: '採用ご担当者様のプロフィールです。') do |user| # データの検索と作成を自動的に判断する
       user.password = SecureRandom.urlsafe_base64 # ランダムな文字列を作成。これでパスワードが自動で作成される

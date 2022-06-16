@@ -32,6 +32,13 @@
 
 横山翔平
 
+## 詳細設計
+
+# ER図
+https://drive.google.com/file/d/1GSjvGX4DHJ5tHYwgVgBkZH1kbXwfqIgv/view?usp=sharing
+
+# 
+
 ## 開発環境
 
 - OS：Linux(CentOS)
