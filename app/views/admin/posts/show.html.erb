@@ -1,17 +1,19 @@
 <h2>投稿詳細</h2>
 <!--投稿詳細-->
 <div class="row">
-  <div class="post">
-    <div class="post-image">
-      <p class="post-image-item">
-        <%= link_to admin_post_path(@post) do %>
-          <%= image_tag @post.get_image(250,250), class: "rounded" %>
-        <% end %>
-      </p>
-      <!--いいねボタン。ログインしているときはいいねできる-->
-      <div class="like-time">
-        <%= localize @post.created_at, format: :short %>&emsp;
-        <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= @post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
+  <div class="col-md-8">
+    <div class="post">
+      <div class="post-image">
+        <p class="post-image-item">
+          <%= link_to admin_post_path(@post) do %>
+            <%= image_tag @post.get_image(250,250), class: "rounded" %>
+          <% end %>
+        </p>
+        <!--いいねボタン。ログインしているときはいいねできる-->
+        <div class="like-time">
+          <%= localize @post.created_at, format: :short %>&emsp;
+          <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= @post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
+        </div>
       </div>
       <div class="post-info">
         <p>
@@ -29,15 +31,21 @@
         </p>
       </div>
     </div>
-  </div>
-  <div class="comment">
-    <!--コメント数-->
-    <div class="post_comments-counter">
-      <%= render 'public/post_comments/counter', post: @post %>
+    <div class="comment">
+      <!--コメント数-->
+      <div class="post_comments-counter">
+        <%= render 'public/post_comments/counter', post: @post %>
+      </div>
+      <!--コメント一覧-->
+      <div id="comments_area">
+        <%= render 'admin/post_comments/post_comments', post: @post %>
+      </div>
     </div>
-    <!--コメント一覧-->
-    <div id="comments_area">
-      <%= render 'public/post_comments/post_comments', post: @post %>
+  </div>
+  <!--サイドバー-->
+  <div class="col-md-4">
+    <div class="user-info">
+      <%= render 'admin/users/sidebar', user: @post.user %>
     </div>
   </div>
 </div>

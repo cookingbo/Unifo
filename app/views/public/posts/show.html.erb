@@ -25,10 +25,10 @@
       </div>
       <div class="post-info">
         <p>
-        <%= link_to public_user_path(@post.user) do %>
-          <%= image_tag @post.user.get_profile_image(30,30), class: "rounded-circle border border-muted" %>
-          <%= @post.user.name %>
-        <% end %>
+          <%= link_to public_user_path(@post.user) do %>
+            <%= image_tag @post.user.get_profile_image(30,30), class: "rounded-circle border border-muted" %>
+            <%= @post.user.name %>
+          <% end %>
         </p>
         <p class="post-info-item"><%= @post.place %></p>
         <p><%= @post.explaination %></p>
@@ -50,7 +50,6 @@
       </div>
     </div>
     <div class="comment">
-      <!--エラーメッセージ-->
       <!--コメント投稿-->
       <div class="new-comment">
         <%= render 'public/post_comments/form', post: @post, comment: @comment %>

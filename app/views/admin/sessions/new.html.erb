@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div action="" method="post" name="Login_Form" class="form-signin">
-    <h3>管理者ログイン</h3>
+    <h3 class="form-signin-heading">管理者ログイン</h3>
     <hr class="colorgraph"></hr>
     <%= form_with model: @admin, url: admin_session_path do |f| %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "アカウント名", class: "form-control", :type => "text" %>

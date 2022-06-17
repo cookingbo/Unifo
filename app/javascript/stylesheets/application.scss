@@ -1,5 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
-
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 * {
   margin: 0;
   padding: 0;
@@ -87,7 +87,7 @@ main {
   min-height: 100%;
   width: 100%;
   padding: 10px 50px 0;
-  font-family: 'Calibri', cursive;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   background-color: #EEEEEE;
   justify-content: center;
   position: relative;
@@ -304,6 +304,7 @@ input[type="password"] {
 
 .checkbox {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .checkbox-item {

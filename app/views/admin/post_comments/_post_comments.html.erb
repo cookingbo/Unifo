@@ -1,0 +1,17 @@
+<% if post.post_comments.present? %>
+  <% post.post_comments.reverse.each do |post_comment| %>
+    <p>
+      <%= link_to admin_user_path(post_comment.user) do %>
+        <%= image_tag post_comment.user.get_profile_image(30,30), class: "rounded-circle" %>
+        <%= post_comment.user.name %>
+      <% end %>
+    </p>
+    <div class="post-comment">
+      <div class="post-comment-area">
+        <%= post_comment.comment %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p>コメントはまだありません</p>
+<% end %>

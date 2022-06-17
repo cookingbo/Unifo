@@ -1,23 +1,38 @@
-  <!--投稿者のプロフィール-->
- <h2><%= @user.name %>のプロフィール</h2>
-  <div class="row">
-    <div class="col-md-8">
-      <% @posts.each do |post| %>
-      <div>
-        <p>
+<!--投稿者のプロフィール-->
+<h2><%= @user.name %>のプロフィール</h2>
+<div class="row">
+  <div class="col-md-8">
+    <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post-image">
+        <p class="post-image-item">
           <%= link_to admin_post_path(post) do %>
-            <%= image_tag post.get_image(250,250) %>
+            <%= image_tag post.get_image(250,250), class: "rounded" %>
           <% end %>
         </p>
-        <p><i class="fas fa-thumbs-up fa-2x"></i>&emsp;<%= post.likes.count %></p>
-        <p><%= post.place %></p>
-        <p><%= post.explaination %></p>
-        <p><%= render 'public/post_comments/counter', post: post %><p>
+        <div class="like-time">
+          <%= localize post.created_at, format: :short %>&emsp;
+          <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= post.likes.count %>いいね
+        </div>
       </div>
-      <% end %>
+      <div class="post-info">
+        <p class="post-info-item"><%= post.place %></p>
+        <p><%= post.explaination %></p>
+        <p>
+          <% post.tags.each do |tag| %>
+            #<%= tag.name %>
+          <% end %>
+        </p>
+        <%= render 'public/post_comments/counter', post: post %>
+      </div>
     </div>
+    <% end %>
+  </div>
 
-    <!--サイドバー-->
-    <div class="col-md-4">
+  <!--サイドバー-->
+  <div class="col-md-4">
+    <div class="user-info">
       <%= render 'admin/users/sidebar', user: @user %>
     </div>
+  </div>
+</div>
