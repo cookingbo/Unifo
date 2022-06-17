@@ -6,10 +6,18 @@
         <%= post_comment.user.name %>
       <% end %>
     </p>
-    <p><%= post_comment.comment %></p>
-    <% if post_comment.user == current_user %>
-    <%= link_to "削除", public_post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
-    <% end %>
+    <div class="post-comment">
+      <div class="post-comment-area">
+        <%= post_comment.comment %>
+      </div>
+      <div class="post-comment-delete">
+        <% if post_comment.user == current_user %>
+          <%= link_to public_post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} do %>
+            <i class="far fa-trash-alt fa-lg"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 <% else %>
   <p>コメントはまだありません</p>

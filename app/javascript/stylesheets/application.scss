@@ -116,10 +116,13 @@ main {
 }
 
 .post {
+  background-color: #FFFFFF;
   display: flex;
-  height: 270px;
-  margin: 15px;
+  height: 300px;
+  padding: 10px;
+  margin: 10px;
   border-bottom: solid 1px #BBBBBB;
+  border-radius: 6px;
   position: relative;
 }
 
@@ -141,6 +144,7 @@ main {
 
 .post-info {
   width: 500px;
+  padding-top: 15px;
   margin-left: 25px;
   overflow-wrap: break-word;
 }
@@ -155,8 +159,8 @@ main {
 
 .edit-delete {
   position: absolute;
-  top: 0;
-  right: 5px;
+  top: 5px;
+  right: 10px;
 }
 
 .col-md-4 {
@@ -195,6 +199,7 @@ main {
 
 .comment {
   margin-left: 20px;
+  padding-right: 250px;
 }
 
 .new-post {
@@ -314,10 +319,31 @@ input[type="password"] {
   text-align: center;
   justify-content: center;
 }
+
 .unsubscribe h2 {
   padding-left: 0;
 }
 
 .unsubscribe a {
   margin: 0 10px;
+}
+
+#comments_area {
+  border: solid 1px #BBBBBB;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+
+}
+
+#comments_area p {
+  margin: 5px 0 3px;
+}
+
+.post-comment {
+  display: flex;
+  margin-left: 10px;
+}
+
+.post-comment-delete {
+  margin-left: 10px;
 }
