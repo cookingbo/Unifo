@@ -34,10 +34,14 @@
 
 ## 詳細設計
 
-# ER図
+### ER図
 https://drive.google.com/file/d/1GSjvGX4DHJ5tHYwgVgBkZH1kbXwfqIgv/view?usp=sharing
 
-# 
+### テーブル設計書
+https://docs.google.com/spreadsheets/d/1DL8UlUF1VUcezCp5QB90wF-KOVAJvV4pfbpbZ2m6_X4/edit?usp=sharing
+
+### アプリケーション詳細設計
+https://docs.google.com/spreadsheets/d/1aknae0-ZV-tW8BiuNOZ3AzGGI39SxKm_bYb4VfoByAA/edit?usp=sharing
 
 ## 開発環境
 

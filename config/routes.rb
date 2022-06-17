@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     # 論理削除用のルーティング
     patch "/users/:id/withdrawal" => "users#withdrawal", as: "withdrawal"
     # postsに対してlikesとpost_commentsをネストする。
-    resources :posts do
+    resources :posts, except: [:index] do
       resource :likes, only: [:create, :destroy] # 1つの投稿に対して1回だけしかいいねできないため、resourceとすることでいいねのidを含めない形にした
       resources :post_comments, only: [:create, :destroy]
     end
