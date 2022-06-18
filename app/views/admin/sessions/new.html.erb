@@ -3,7 +3,7 @@
     <h3 class="form-signin-heading">管理者ログイン</h3>
     <hr class="colorgraph"></hr>
     <%= form_with model: @admin, url: admin_session_path do |f| %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "アカウント名", class: "form-control", :type => "text" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "メールアドレス", class: "form-control", :type => "text" %>
     <%= f.password_field :password, autocomplete: "current-password", :placeholder => "パスワード", class: "form-control", :type => "password" %>
     <% if devise_mapping.rememberable? %>
       <%= f.check_box :remember_me %>
