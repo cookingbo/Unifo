@@ -122,7 +122,7 @@ main {
   height: 300px;
   padding: 10px;
   margin: 10px;
-  border-bottom: solid 1px #BBBBBB;
+  border: solid 1px #BBBBBB;
   border-radius: 6px;
   position: relative;
 }
@@ -183,6 +183,7 @@ main {
   padding: 10px 0;
   border: solid 1px #BBBBBB;
   background-color: #FFFFFF;
+  border: solid 1px #BBBBBB;
   border-radius: 6px;
   position: relative;
   overflow-wrap: break-word;
@@ -294,6 +295,7 @@ input[type="password"] {
 .checkbox {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 200px;
 }
 
 .checkbox-item {
@@ -305,9 +307,14 @@ input[type="password"] {
 }
 
 .unsubscribe {
+  height: 600px;
+  padding-top: 80px;
   margin-top: 20px;
   text-align: center;
   justify-content: center;
+  background-color: #FFFFFF;
+  border: solid 1px #BBBBBB;
+  border-radius: 6px;
 }
 
 .unsubscribe h2 {
@@ -336,4 +343,8 @@ input[type="password"] {
 
 .post-comment-delete {
   margin-left: 10px;
+}
+
+.form-signin {
+  background-color: #FFFFFF;
 }

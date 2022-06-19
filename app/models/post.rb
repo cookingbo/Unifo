@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags, dependent: :destroy
 
-  # 画像投稿のimageカラムとして扱う
+  # 画像投稿のimageカラムとして扱う(ActiveStorageを使用するため)
   has_one_attached :image
 
   # バリデーション

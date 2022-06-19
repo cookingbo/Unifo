@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates :area, presence: true
   validates :introduction, length: { in: 1..100 }
 
-  # ユーザのprofile_imageカラムとして扱う
+  # ユーザのprofile_imageカラムとして扱う(ActiveStorageを使用するため)
   has_one_attached :profile_image
 
   # countries gemから情報を持ってくるメソッド

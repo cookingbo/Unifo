@@ -1,0 +1,47 @@
+<div class="post-image">
+  <p class="post-image-item">
+    <%= link_to public_post_path(post) do %>
+      <%= image_tag post.get_image(250,250), class: "rounded" %>
+    <% end %>
+  </p>
+  <!--いいねボタン。ログインしているときはいいねできる-->
+  <% if user_signed_in? %>
+  <div class="like-time">
+    <p id="like_buttons_<%= post.id %>">
+      <%= render "public/likes/like", post: post %>
+    </p>
+  </div>
+  <% else %>
+  <div class="like-time">
+    <%= localize post.created_at, format: :short %>&emsp;
+    <i class="far fa-thumbs-up fa-lg"></i><%= post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
+  </div>
+  <% end %>
+</div>
+<div class="post-info">
+  <p>
+    <%= link_to public_user_path(post.user) do %>
+      <%= image_tag post.user.get_profile_image(30,30), class: "rounded-circle border border-muted" %>
+      <%= post.user.name %>
+    <% end %>
+  </p>
+  <p class="post-info-item"><%= post.place %></p>
+  <p><%= post.explaination %></p>
+  <p>
+  <% post.tags.each do |tag| %>
+    #<%= tag.name %>
+  <% end %>
+  </p>
+  <%= render 'public/post_comments/counter', post: post %>&emsp;
+  <p><i class="far fa-comment"></i><%= link_to "コメントする", public_post_path(post.id) %></p>
+</div>
+<div class="edit-delete">
+  <% if post.user == current_user %>
+    <%= link_to edit_public_post_path(post.id) do %>
+      <i class="far fa-edit fa-lg"></i>&nbsp;
+    <% end %>
+    <%= link_to public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+      <i class="far fa-trash-alt fa-lg"></i>
+    <% end %>
+  <% end %>
+</div>

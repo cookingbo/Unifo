@@ -26,9 +26,11 @@
       </tbody>
     </table>
     <% else %>
-      <p>フォローしているユーザはいません</p>
+      <p>フォロワーはいません</p>
     <% end %>
   </div>
+
+  <!--サイドバー-->
   <div class="col-md-4">
     <div class="user-info">
       <%= render 'public/users/sidebar', user: @user %>

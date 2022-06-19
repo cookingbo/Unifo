@@ -11,13 +11,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_up_path_for(resource)
-    case resource
-    when User
-      public_user_path(resource)
-    end
-  end
-
   def after_sign_out_path_for(resource)
     if resource == :admin
       new_admin_session_path
