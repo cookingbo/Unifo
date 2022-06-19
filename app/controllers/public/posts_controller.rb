@@ -13,7 +13,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      flash[:notice] = "投稿されました！"
+      flash[:notice] = "投稿しました！"
       redirect_to "/"
     else
       render:new

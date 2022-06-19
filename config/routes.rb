@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "posts#index"
     resources :posts, only: [:show]
-    resources :users, only: [:index, :show] do
+    resources :users, only: [:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy] # 1人のユーザに対して一度しかフォローできないため、resourceとすることでidを含めない形にした。
       get "followings" => "relationships#followings", as: "followings"
       get "followers" => "relationships#followers", as: "followers"

@@ -1,9 +1,9 @@
 class Post < ApplicationRecord
   # アソシエーション
   belongs_to :user
-  has_many :post_comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :post_tags, dependent: :destroy
+  has_many :post_comments,             dependent: :destroy
+  has_many :likes,                     dependent: :destroy
+  has_many :post_tags,                 dependent: :destroy
   has_many :tags, through: :post_tags, dependent: :destroy
 
   # 画像投稿のimageカラムとして扱う(ActiveStorageを使用するため)
@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   validates :place, length: { in: 1..20 }
   validates :explaination, length: { in: 1..200 }
 
-  # get_imageを定義づけ
+  # get_imageを定義づけ(デフォルト画像はUnifo1.png)
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/Unifo1.png')

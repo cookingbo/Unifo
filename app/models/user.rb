@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
 
-  # get_imageを定義づけ
+  # get_imageを定義づけ(デフォルト画像はUnifo1.png)
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/Unifo1.png')

@@ -10,5 +10,21 @@
   <p>地域名：<%= user.area %></p>
   <p>国名：<%= user.country_name %></p>
   <p>自己紹介：<br><%= user.introduction %></p>
+  <div class="user-edit">
+    <%= link_to edit_admin_user_path(user) do %>
+      <i class="far fa-edit fa-lg"></i>
+    <% end %>
+  </div>
   <p><%= link_to "フォロー's", admin_user_followings_path(user) %>：<%= user.followings.count %></p>
   <p><%= link_to "フォロワー's", admin_user_followers_path(user) %>：<%= user.followers.count %></p>
+  <% if user.is_deleted == false %>
+  <p>
+    ステータス：
+    <strong class="text-success">有効</strong>
+  </p>
+  <% else %>
+  <p>
+    ステータス：
+    <strong class="text-danger">退会済み</strong>
+  </p>
+  <% end %>

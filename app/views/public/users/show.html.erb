@@ -1,8 +1,8 @@
 <!--投稿者のプロフィール-->
 <% if @user == current_user %>
-  <h2>マイページ</h2>
+<h2>マイページ</h2>
 <% else %>
-  <h2><%= @user.name %></h2>
+<h2><%= @user.name %></h2>
 <% end %>
 <div class="row">
   <div class="col-md-8">

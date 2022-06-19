@@ -23,7 +23,7 @@
         <td><%= link_to user.name, admin_user_path(user) %></td>
         <td><%= user.university %></td>
         <td><%= user.area %></td>
-        <td><%= user.country_code %></td>
+        <td><%= user.country_name %></td>
         <td class="explaination text-break"><%= user.introduction %></td>
         <td>
           <% if user.is_deleted == false %>
