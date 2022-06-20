@@ -3,7 +3,7 @@ class Public::PostsController < ApplicationController
 
   def top
     @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.order("created_at desc")
-    @users = User.all
+    @users = User.order("updated_at desc") # 活動があったユーザから並べる
   end
 
   def new

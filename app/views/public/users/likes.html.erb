@@ -9,18 +9,22 @@
           <th>#</th>
           <th>名前</th>
           <th>場所</th>
-          <th style="width:400px;">内容</th>
+          <th>内容</th>
           <th></th>
         </tr>
       </thead>
       <tbody class="text-center">
         <% @like_posts.each do |like_post| %>
         <tr class="align-middle">
-          <td><%= image_tag like_post.get_image(50,50), class: "rounded" %></td>
+          <td>
+            <%= link_to public_post_path(like_post) do %>
+            <%= image_tag like_post.get_image(50,50), class: "rounded" %>
+            <% end %>
+          </td>
           <td><%= link_to like_post.user.name, public_user_path(like_post.user) %></td>
           <td><%= like_post.place %></td>
           <td class="explaination text-break"><%= like_post.explaination %></td>
-          <td><%= link_to "詳細", public_user_path(like_post.user), class: "btn btn-outline-secondary" %></td>
+          <td><%= link_to "詳細", public_post_path(like_post), class: "btn btn-outline-secondary" %></td>
         </tr>
         <% end %>
       </tbody>

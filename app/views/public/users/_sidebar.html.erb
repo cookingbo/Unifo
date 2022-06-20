@@ -28,7 +28,7 @@
 <!--フォロー機能-->
 <% if user != current_user %>
   <% if current_user.following?(user) %>
-    <%= link_to "フォロー外す", public_user_relationships_path(user.id), method: :delete, class: "btn btn-outline-secondary" %>
+    <%= link_to "フォロー中", public_user_relationships_path(user.id), method: :delete, class: "btn btn-outline-secondary" %>
   <% else %>
     <%= link_to "フォローする", public_user_relationships_path(user.id), method: :post, class: "btn btn-secondary" %>
   <% end %>

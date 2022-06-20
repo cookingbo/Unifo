@@ -106,6 +106,7 @@ main h2 {
   height: 50px;
   line-height: 50px;
   padding-left: 45px;
+  font-weight: bold;
 }
 
 main {
@@ -164,11 +165,10 @@ main {
   right: 10px;
 }
 
-.col-md-4 {
-  text-align: center;
-}
+
 
 .search-tag {
+  text-align: center;
   width: 320px;
   margin: 0 50px;
   background-color: #FFFFFF;
@@ -180,7 +180,7 @@ main {
 .user-info {
   width: 320px;
   margin: 20px 50px 0;
-  padding: 10px 0;
+  padding: 10px 0 10px 20px;
   border: solid 1px #BBBBBB;
   background-color: #FFFFFF;
   border: solid 1px #BBBBBB;
@@ -191,6 +191,18 @@ main {
 
 .user-info p {
   margin: 8px 0;
+}
+
+.users {
+  width: 320px;
+  margin: 20px 50px 0;
+  padding: 10px 0 10px 20px;
+  border: solid 1px #BBBBBB;
+  background-color: #FFFFFF;
+  border: solid 1px #BBBBBB;
+  border-radius: 6px;
+  position: relative;
+  overflow-wrap: break-word;
 }
 
 .user-edit {

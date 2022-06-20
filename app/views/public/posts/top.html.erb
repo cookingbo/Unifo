@@ -25,12 +25,17 @@
         <% end %>
       </div>
     </div>
+    <% if user_signed_in? %>
     <div class="user-info">
-      <% if user_signed_in? %>
       <%= render 'public/users/sidebar', user: current_user %>
-      <% else %>
-      <%= render 'public/users/users', user: @users %>
-      <% end %>
     </div>
+    <div class="users">
+      <%= render 'public/users/users', user: @users %>
+    </div>
+    <% else %>
+    <div class="users">
+      <%= render 'public/users/users', user: @users %>
+    </div>
+    <% end %>
   </div>
 </div>
