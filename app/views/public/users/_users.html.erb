@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+<p>
+  <%= image_tag user.get_profile_image(30,30), class: "rounded-circle border border-muted" %>
+  <%= user.name %>
+</p>
+
+<% end %>
