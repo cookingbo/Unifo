@@ -13,25 +13,12 @@ a {
   font-weight: bold;
 }
 
-header {
-  font-family: 'Calibri', cursive;
-  width: 100%;
-  height: 90px;
-  padding: 0 65px;
-  border-bottom: solid 1px #BBBBBB;
-  position: fixed;
-  top: 0;
-  display: flex;
-  position: relative;
+.container-fluid {
+  padding-left: 70px;
 }
 
-header h1 {
-  line-height: 90px;
-  font-size: 45px;
-}
-
-header h1 a:visited, a:active {
-  color: #000000;
+.navbar-brand {
+  font-size: 45px!important;
 }
 
 nav a:hover {
@@ -43,11 +30,6 @@ ul {
   display: flex;
 }
 
-.nav-list {
-  padding: 0 20px;
-  margin-bottom: 0;
-}
-
 .nav-list-item {
   line-height: 90px;
   list-style: none;
@@ -57,20 +39,6 @@ ul {
 
 .nav-list-item a {
   color: #888888;
-}
-
-.search-box {
-  position: absolute;
-  top: 25px;
-  right: 40px;
-}
-
-.search-form .search-button {
-  height: 25px;
-}
-
-.search-button {
-  padding: 0 6px;
 }
 
 .notice {
@@ -136,6 +104,11 @@ main {
   margin-bottom: 0;
 }
 
+.rounded {
+  width: 250px;
+  height: 250px;
+}
+
 .like-time {
   margin-top: 5px;
 }
@@ -164,8 +137,6 @@ main {
   top: 5px;
   right: 10px;
 }
-
-
 
 .search-tag {
   text-align: center;
@@ -255,13 +226,6 @@ main {
 .form-signin-heading {
   text-align:center;
   margin-bottom: 30px;
-}
-
-.form-control {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
 }
 
 input[type="text"] {
@@ -361,3 +325,14 @@ input[type="password"] {
   background-color: #FFFFFF;
 }
 
+
+/* スマートフォン用*/
+@media screen and (max-width:425px) {
+  h2 {
+    font-size: 25px;
+  }
+
+  .navbar-brand {
+    font-size: 35px!important;
+  }
+}
