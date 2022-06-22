@@ -28,9 +28,9 @@
 <!--フォロー機能-->
 <% if user != current_user %>
   <% if current_user.following?(user) %>
-    <%= link_to "フォロー中", public_user_relationships_path(user.id), method: :delete, class: "btn btn-outline-secondary" %>
+    <%= link_to "フォロー中", public_user_relationships_path(user.id), method: :delete, class: "btn btn-outline-secondary btn-sm" %>
   <% else %>
-    <%= link_to "フォローする", public_user_relationships_path(user.id), method: :post, class: "btn btn-secondary" %>
+    <%= link_to "フォローする", public_user_relationships_path(user.id), method: :post, class: "btn btn-secondary btn-sm" %>
   <% end %>
 <% elsif user.name != "採用ご担当者様" %>
   <%= link_to "退会手続きへ", public_unsubscribe_path(current_user), class: "btn btn-outline-secondary btn-sm" %>

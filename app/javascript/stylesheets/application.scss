@@ -214,6 +214,10 @@ main {
   margin: 10px 0;
 }
 
+.error-message {
+  color: red;
+}
+
 .error-message ul {
   list-style: none;
   display: block;
@@ -337,8 +341,140 @@ input[type="password"] {
   background-color: #FFFFFF;
 }
 
+/*タブレット横置きサイズ*/
+@media screen and (max-width:1024px) {
 
-/* スマートフォン用*/
+  .post-info {
+    width: 100%;
+  }
+
+  .search-tag {
+    width: 100%;
+    margin: 0 30px;
+  }
+
+  .user-info {
+    width: 100%;
+    margin: 20px 30px 0;
+  }
+
+  .users {
+    width: 100%;
+    margin: 20px 30px 0;
+  }
+
+  .comment {
+    padding-right: 200px;
+  }
+
+  .form-group {
+    margin: 10px 0;
+  }
+
+  .wrapper {
+  	margin-top: 80px;
+  	margin-bottom: 20px;
+  }
+
+  .form-signin {
+    width: 100%;
+  }
+
+  .about {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .checkbox {
+    flex-flow: row wrap;
+    margin: 0;
+  }
+
+  .unsubscribe {
+    height: auto;
+    padding-bottom: 80px;
+  }
+
+}
+
+/*タブレット縦置きサイズ*/
+@media screen and (max-width:768px) {
+
+  main {
+    font-size: 14px;
+  }
+
+  .post {
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+  }
+
+  .post-image {
+    text-align: center;
+  }
+
+  .post-info {
+    width: 100%;
+    padding-top: 0;
+    margin-left: 0;
+  }
+
+  .like-time p {
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .search-tag {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .user-info {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .users {
+    margin: 0;
+    width: 100%;
+  }
+
+  .comment {
+    padding-right: 150px;
+    margin-left: 0;
+  }
+
+  .form-group {
+    margin: 10px 0;
+  }
+
+  .wrapper {
+  	margin-top: 80px;
+  	margin-bottom: 20px;
+  }
+
+  .form-signin {
+    width: 100%;
+  }
+
+  .about {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .checkbox {
+    flex-flow: row wrap;
+    margin: 0;
+  }
+
+  .unsubscribe {
+    height: auto;
+    padding-bottom: 80px;
+  }
+}
+
+/*スマートフォン用*/
 @media screen and (max-width:425px) {
   h2 {
     font-size: 25px;
@@ -425,7 +561,6 @@ input[type="password"] {
 
   .error-message {
     font-size: 12px;
-    color: red;
   }
 
   .wrapper {
