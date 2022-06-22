@@ -2,7 +2,7 @@
 <!--投稿者の情報詳細-->
   <p>
     <%= link_to admin_user_path(user) do %>
-      <%= image_tag user.get_profile_image(30,30), class: "rounded-circle border border-muted" %>
+      <%= image_tag user.get_profile_image, class: "rounded-circle border border-muted" %>
       <%= user.name %>
     <% end %>
   </p>

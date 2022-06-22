@@ -18,7 +18,7 @@
         <tr class="align-middle">
           <td>
             <%= link_to public_user_path(user) do %>
-              <%= image_tag user.get_profile_image(50,50), class: "rounded-circle" %>
+              <%= image_tag user.get_profile_image, class: "rounded-circle" %>
             <% end %>
           </td>
           <td><%= link_to user.name, public_user_path(user) %></td>
@@ -42,7 +42,7 @@
           <tr class="align-middle">
             <td>
               <%= link_to public_post_path(post) do %>
-                <%= image_tag post.get_image(50,50), class: "rounded-circle" %>
+                <%= image_tag post.get_image, class: "rounded-circle" %>
               <% end %>
             </td>
             <td><%= link_to post.user.name, public_user_path(post.user) %></td>
