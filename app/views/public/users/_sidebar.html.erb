@@ -33,6 +33,6 @@
     <%= link_to "フォローする", public_user_relationships_path(user.id), method: :post, class: "btn btn-secondary" %>
   <% end %>
 <% elsif user.name != "採用ご担当者様" %>
-  <%= link_to "退会手続きへ", public_unsubscribe_path(current_user), class: "btn btn-outline-secondary" %>
+  <%= link_to "退会手続きへ", public_unsubscribe_path(current_user), class: "btn btn-outline-secondary btn-sm" %>
 <% else %>
 <% end %>

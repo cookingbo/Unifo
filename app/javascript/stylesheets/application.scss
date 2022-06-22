@@ -13,6 +13,17 @@ a {
   font-weight: bold;
 }
 
+header {
+  border-bottom: solid 1px #BBBBBB;
+  font-family: 'Calibri', cursive;
+  background-color: #FFFFFF;
+}
+
+.navbar .navbar-expand-lg .navbar-light {
+  height: 90px!important;
+}
+
+
 .container-fluid {
   padding-left: 70px;
 }
@@ -88,7 +99,7 @@ main {
 .post {
   background-color: #FFFFFF;
   display: flex;
-  height: 300px;
+  height: auto;
   padding: 10px;
   margin: 10px;
   border: solid 1px #BBBBBB;
@@ -104,7 +115,7 @@ main {
   margin-bottom: 0;
 }
 
-.rounded {
+.post-image .rounded {
   width: 250px;
   height: 250px;
 }
@@ -150,6 +161,7 @@ main {
 
 .user-info {
   width: 320px;
+  height: auto;
   margin: 20px 50px 0;
   padding: 10px 0 10px 20px;
   border: solid 1px #BBBBBB;
@@ -165,6 +177,7 @@ main {
 }
 
 .users {
+  height: auto;
   width: 320px;
   margin: 20px 50px 0;
   padding: 10px 0 10px 20px;
@@ -221,7 +234,7 @@ main {
   margin: 0 auto;
   background-color: #eee;
   border: 3px dotted rgba(0,0,0,0.1);
-  }
+}
 
 .form-signin-heading {
   text-align:center;
@@ -241,9 +254,9 @@ input[type="password"] {
 }
 
 .actions {
+  width: 100%;
   justify-content: center;
   text-align: center;
-  margin: 0 400px;
 }
 
 .about {
@@ -305,7 +318,6 @@ input[type="password"] {
   border: solid 1px #BBBBBB;
   border-radius: 6px;
   background-color: #FFFFFF;
-
 }
 
 #comments_area p {
@@ -350,230 +362,98 @@ input[type="password"] {
   }
 
   .post {
-    text-align: center;
-    height: 500px;
     display: block;
-    background-color: #FFFFFF;
-    padding: 10px;
-    margin: 10px;
-    border: solid 1px #BBBBBB;
-    border-radius: 6px;
+    margin: 0 0 5px;
   }
 
   .post-image {
     margin-bottom: 0;
+    text-align: center;
+    font-size: 12px;
   }
 
-  .post-image-item {
-    margin-bottom: 0;
-  }
-
-  .rounded {
-    width: 200px;
-    height: 200px;
+  .post-image .rounded {
+    width: 320px;
+    height: 320px;
   }
 
   .like-time p {
     margin-bottom: 0;
-  }
-
-  .like-time a:visited, a:active {
-    color: #000000;
+    text-align: left;
   }
 
   .post-info {
     width: 100%;
     margin-left: 0;
     padding-top: 0;
-    overflow-wrap: break-word;
+    font-size: 12px;
+  }
+
+  .col-md-4 {
+    font-size: 12px;
   }
 
   .search-tag {
-    text-align: center;
     width: 100%;
     margin: 10px 0;
-    background-color: #FFFFFF;
-    padding: 10px 0;
-    border: solid 1px #BBBBBB;
-    border-radius: 6px;
   }
 
   .user-info {
     width: 100%;
     margin: 10px 0;
-    padding: 10px 0 10px 20px;
-    border: solid 1px #BBBBBB;
-    background-color: #FFFFFF;
-    border: solid 1px #BBBBBB;
-    border-radius: 6px;
-    position: relative;
-    overflow-wrap: break-word;
-  }
-
-  .user-info p {
-    margin: 8px 0;
   }
 
   .users {
     width: 100%;
     margin: 10px 0;
-    padding: 10px 0 10px 20px;
-    border: solid 1px #BBBBBB;
-    background-color: #FFFFFF;
-    border: solid 1px #BBBBBB;
-    border-radius: 6px;
-    position: relative;
-    overflow-wrap: break-word;
   }
 
   .user-edit {
-    position: absolute;
-    top: 0;
-    right: 5px;
+    font-size: 16px;
   }
 
   .comment {
-    margin-left: 20px;
-    padding-right: 250px;
+    width: 100%;
+    padding: 0;
+    margin: 5px 0 0;
+    font-size: 12px;
   }
 
-  .new-post {
-    justify-content: center;
-    text-align: center;
+  .new-comment {
+    width: 100%;
   }
 
-  .edit-post {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .form-group {
-    margin: 10px 0;
-  }
-
-  .error-message ul {
-    list-style: none;
-    display: block;
-  }
-
-  .error-message li {
-    display: list-item;
+  .error-message {
+    font-size: 12px;
+    color: red;
   }
 
   .wrapper {
-  	margin-top: 80px;
-  	margin-bottom: 20px;
+  	margin: 0;
   }
 
   .form-signin {
-    max-width: 420px;
-    padding: 30px 38px 66px;
-    margin: 0 auto;
-    background-color: #eee;
-    border: 3px dotted rgba(0,0,0,0.1);
-    }
-
-  .form-signin-heading {
-    text-align:center;
-    margin-bottom: 30px;
-  }
-
-  input[type="text"] {
-    margin-bottom: 0px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  input[type="password"] {
-    margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    width: 100%;
   }
 
   .actions {
-    justify-content: center;
-    text-align: center;
-    margin: 0 400px;
+    margin: 0;
   }
 
   .about {
-    height: 700px;
-    background-color: #FFFFFF;
-    margin-top: 30px;
-    padding-top: 40px;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Mv Boli', sans-serif;
-  }
-
-  .about-title {
-    font-size: 50px;
-  }
-
-  .about-detail {
-    font-size: 20px;
-  }
-
-  .new-post {
-    overflow-wrap: break-word;
+    height: auto;
+    margin-top: 0;
+    padding: 40px 0;
   }
 
   .checkbox {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 200px;
-  }
-
-  .checkbox-item {
-    display: inline;
-  }
-
-  .col-md-8 {
-    padding-top: 25px;
+    flex-flow: row wrap;
+    margin: 0;
   }
 
   .unsubscribe {
-    height: 600px;
-    padding-top: 80px;
-    margin-top: 20px;
-    text-align: center;
-    justify-content: center;
-    background-color: #FFFFFF;
-    border: solid 1px #BBBBBB;
-    border-radius: 6px;
+    margin-top: 0;
+    border-radius: 0;
   }
-
-  .unsubscribe h2 {
-    padding-left: 0;
-  }
-
-  .unsubscribe a {
-    margin: 0 10px;
-  }
-
-  #comments_area {
-    border: solid 1px #BBBBBB;
-    border-radius: 6px;
-    background-color: #FFFFFF;
-
-  }
-
-  #comments_area p {
-    margin: 5px 0 3px;
-  }
-
-  .post-comment {
-    display: flex;
-    margin-left: 10px;
-  }
-
-  .post-comment-delete {
-    margin-left: 10px;
-  }
-
-  .form-signin {
-    background-color: #FFFFFF;
-  }
-
 
 }

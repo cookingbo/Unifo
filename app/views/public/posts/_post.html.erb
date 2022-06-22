@@ -33,7 +33,7 @@
   <% end %>
   </p>
   <%= render 'public/post_comments/counter', post: post %>&emsp;
-  <p><i class="far fa-comment"></i><%= link_to "コメントする", public_post_path(post.id) %></p>
+  <i class="far fa-comment"></i><%= link_to "コメントする", public_post_path(post.id) %>
 </div>
 <div class="edit-delete">
   <% if post.user == current_user %>
