@@ -2,7 +2,7 @@
 <% @users.each do |user| %>
 <p>
   <%= link_to public_user_path(user) do %>
-  <%= image_tag user.get_profile_image(30,30), class: "rounded-circle border border-muted" %>
+  <%= image_tag user.get_profile_image, class: "rounded-circle border border-muted" %>
   <%= user.name %>
   <% end %>
 </p>

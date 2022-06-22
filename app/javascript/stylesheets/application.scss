@@ -108,7 +108,7 @@ main {
 }
 
 .post-image {
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
 }
 
 .post-image-item {
@@ -141,6 +141,11 @@ main {
 
 .post-info-item {
   margin-top: 5px;
+}
+
+.post-info .rounded-circle.border.border-muted {
+  width: 30px;
+  height: 30px;
 }
 
 .edit-delete {
@@ -176,6 +181,11 @@ main {
   margin: 8px 0;
 }
 
+.user-info .rounded-circle.border.border-muted {
+  width: 30px;
+  height: 30px;
+}
+
 .users {
   height: auto;
   width: 320px;
@@ -189,6 +199,11 @@ main {
   overflow-wrap: break-word;
 }
 
+.users .rounded-circle.border.border-muted {
+  width: 30px;
+  height: 30px;
+}
+
 .user-edit {
   position: absolute;
   top: 0;
@@ -198,6 +213,11 @@ main {
 .comment {
   margin-left: 20px;
   padding-right: 250px;
+}
+
+.comment .rounded-circle.border.border-muted {
+  width: 30px;
+  height: 30px;
 }
 
 .new-post {
@@ -341,6 +361,16 @@ input[type="password"] {
   background-color: #FFFFFF;
 }
 
+.align-middle .rounded {
+  width: 50px;
+  height: 50px;
+}
+
+.align-middle .rounded-circle {
+  width: 50px;
+  height: 50px;
+}
+
 /*タブレット横置きサイズ*/
 @media screen and (max-width:1024px) {
 
@@ -412,6 +442,7 @@ input[type="password"] {
 
   .post-image {
     text-align: center;
+    margin: 20px 0 0;
   }
 
   .post-info {
@@ -503,7 +534,7 @@ input[type="password"] {
   }
 
   .post-image {
-    margin-bottom: 0;
+    margin: 20px 0 0;
     text-align: center;
     font-size: 12px;
   }

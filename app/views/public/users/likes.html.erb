@@ -17,7 +17,7 @@
         <tr class="align-middle">
           <td>
             <%= link_to public_post_path(like_post) do %>
-            <%= image_tag like_post.get_image(50,50), class: "rounded" %>
+            <%= image_tag like_post.get_image, class: "rounded" %>
             <% end %>
           </td>
           <td><%= link_to like_post.user.name, public_user_path(like_post.user) %></td>

@@ -8,18 +8,13 @@ class Post < ApplicationRecord
 
   # 画像投稿のimageカラムとして扱う(ActiveStorageを使用するため)
   has_one_attached :image
-
   # バリデーション
   validates :place, length: { in: 1..20 }
   validates :explaination, length: { in: 1..200 }
 
   # get_imageを定義づけ(デフォルト画像はUnifo1.png)
-  def get_image(width, height)
-    unless image.attached?
-      file_path = Rails.root.join('app/assets/images/Unifo1.png')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-    end
-    image.variant(resize_to_limit: [width, height]).processed
+  def get_image
+    (image.attached?) ? image : 'Unifo1.png'
   end
 
   # 引数で渡されたユーザidがFavoritesテーブル内に存在するかどうかを調べる
