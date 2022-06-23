@@ -11,8 +11,10 @@
         </p>
         <!--いいねボタン。ログインしているときはいいねできる-->
         <div class="like-time">
-          <%= localize @post.created_at, format: :short %>&emsp;
-          <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= @post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
+          <p>
+            <%= localize @post.created_at, format: :short %>&emsp;
+            <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= @post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
+          </p>
         </div>
       </div>
       <div class="post-info">

@@ -1,23 +1,25 @@
 <% if post.post_comments.present? %>
   <% post.post_comments.reverse.each do |post_comment| %>
-    <p>
-      <%= link_to public_user_path(post_comment.user) do %>
-        <%= image_tag post_comment.user.get_profile_image, class: "rounded-circle border border-muted" %>
-        <%= post_comment.user.name %>
-      <% end %>
-    </p>
-    <div class="post-comment">
-      <div class="post-comment-area">
-        <%= post_comment.comment %>
-      </div>
-      <div class="post-comment-delete">
-        <% if post_comment.user == current_user %>
-          <%= link_to public_post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} do %>
-            <i class="far fa-trash-alt fa-lg"></i>
-          <% end %>
+    <% if post_comment.user.is_deleted == false %>
+      <p>
+        <%= link_to public_user_path(post_comment.user) do %>
+          <%= image_tag post_comment.user.get_profile_image, class: "rounded-circle border border-muted" %>
+          <%= post_comment.user.name %>
         <% end %>
+      </p>
+      <div class="post-comment">
+        <div class="post-comment-area">
+          <%= post_comment.comment %>
+        </div>
+        <div class="post-comment-delete">
+          <% if post_comment.user == current_user %>
+            <%= link_to public_post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} do %>
+              <i class="far fa-trash-alt fa-lg"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 <% else %>
   <p>コメントはまだありません</p>

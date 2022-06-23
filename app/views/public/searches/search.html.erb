@@ -15,16 +15,18 @@
       </thead>
       <tbody class="text-center">
         <% @users.each do |user| %>
-        <tr class="align-middle">
-          <td>
-            <%= link_to public_user_path(user) do %>
-              <%= image_tag user.get_profile_image, class: "rounded-circle" %>
-            <% end %>
-          </td>
-          <td><%= link_to user.name, public_user_path(user) %></td>
-          <td><%= user.university %></td>
-          <td><%= link_to "詳細", public_user_path(user), class: "btn btn-outline-secondary" %></td>
-        </tr>
+          <% if user.is_deleted == false %>
+          <tr class="align-middle">
+            <td>
+              <%= link_to public_user_path(user) do %>
+                <%= image_tag user.get_profile_image, class: "rounded-circle" %>
+              <% end %>
+            </td>
+            <td><%= link_to user.name, public_user_path(user) %></td>
+            <td><%= user.university %></td>
+            <td><%= link_to "詳細", public_user_path(user), class: "btn btn-outline-secondary" %></td>
+          </tr>
+          <% end %>
         <% end %>
       </tbody>
       <% else %>
@@ -39,16 +41,18 @@
       </thead>
       <tbody class="text-center">
         <% @posts.each do |post| %>
-          <tr class="align-middle">
-            <td>
-              <%= link_to public_post_path(post) do %>
-                <%= image_tag post.get_image, class: "rounded-circle" %>
-              <% end %>
-            </td>
-            <td><%= link_to post.user.name, public_user_path(post.user) %></td>
-            <td><%= post.place %></td>
-            <td><%= link_to "詳細", public_post_path(post), class: "btn btn-outline-secondary" %></td>
-          </tr>
+          <% if post.user.is_deleted == false %>
+            <tr class="align-middle">
+              <td>
+                <%= link_to public_post_path(post) do %>
+                  <%= image_tag post.get_image, class: "rounded-circle" %>
+                <% end %>
+              </td>
+              <td><%= link_to post.user.name, public_user_path(post.user) %></td>
+              <td><%= post.place %></td>
+              <td><%= link_to "詳細", public_post_path(post), class: "btn btn-outline-secondary" %></td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
       <% end %>

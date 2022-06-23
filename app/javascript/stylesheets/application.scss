@@ -234,6 +234,11 @@ main {
   margin: 10px 0;
 }
 
+#user_country_code {
+  display: block;
+  width: 100%;
+}
+
 .error-message {
   color: red;
 }
@@ -507,6 +512,7 @@ input[type="password"] {
 
 /*スマートフォン用*/
 @media screen and (max-width:425px) {
+
   h2 {
     font-size: 25px;
   }

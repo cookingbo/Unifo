@@ -14,16 +14,18 @@
       </thead>
       <tbody class="text-center">
         <% @like_posts.each do |like_post| %>
-        <tr class="align-middle">
-          <td>
-            <%= link_to public_post_path(like_post) do %>
-            <%= image_tag like_post.get_image, class: "rounded" %>
-            <% end %>
-          </td>
-          <td><%= link_to like_post.user.name, public_user_path(like_post.user) %></td>
-          <td><%= like_post.place %></td>
-          <td><%= link_to "詳細", public_post_path(like_post), class: "btn btn-secondary" %></td>
-        </tr>
+          <% if like_post.user.is_deleted == false %>
+          <tr class="align-middle">
+            <td>
+              <%= link_to public_post_path(like_post) do %>
+              <%= image_tag like_post.get_image, class: "rounded" %>
+              <% end %>
+            </td>
+            <td><%= link_to like_post.user.name, public_user_path(like_post.user) %></td>
+            <td><%= like_post.place %></td>
+            <td><%= link_to "詳細", public_post_path(like_post), class: "btn btn-secondary" %></td>
+          </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>

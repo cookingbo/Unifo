@@ -1,9 +1,11 @@
 <h6><i class="fas fa-star-and-crescent"></i>&nbsp;最近活動したユーザ</h6>
 <% @users.each do |user| %>
-<p>
-  <%= link_to public_user_path(user) do %>
-  <%= image_tag user.get_profile_image, class: "rounded-circle border border-muted" %>
-  <%= user.name %>
+  <% if user.is_deleted == false %>
+  <p>
+    <%= link_to public_user_path(user) do %>
+    <%= image_tag user.get_profile_image, class: "rounded-circle border border-muted" %>
+    <%= user.name %>
+    <% end %>
+  </p>
   <% end %>
-</p>
 <% end %>
