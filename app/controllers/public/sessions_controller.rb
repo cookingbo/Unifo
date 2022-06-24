@@ -23,9 +23,9 @@ class Public::SessionsController < Devise::SessionsController
 
   # ユーザの論理削除のための記述。退会後は同じアカウントでは利用できない。
   def reject_user
-    @user = User.find_by(email: params[:user][:email])
+    @user = User.find_by(email: params[:user][:email]) # ログイン時に入力されたメールアドレスに対応するユーザが存在するか探す
     if @user
-      if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
+      if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true) # 入力したパスワードが正しく、退会カラムがtrueの時
         flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
         redirect_to new_user_registration_path
       else

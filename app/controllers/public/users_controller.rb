@@ -10,7 +10,9 @@ class Public::UsersController < ApplicationController
   def withdrawal
     @user = User.find(params[:id])
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    # 取得したidを持つ@userのis_deletedカラムをtrueに更新することで退会状態を作る
     @user.update(is_deleted: true)
+    # セッションをリセットすることで、今まで保持していたデータを削除できる。セキュリティー面も踏まえて明示的に削除する。
     reset_session
     flash[:notice] = "退会処理を実行致しました"
     redirect_to "/"

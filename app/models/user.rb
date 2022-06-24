@@ -71,7 +71,7 @@ class User < ApplicationRecord
     end
   end
 
- # is_deletedがfalseならtrueを返すようにしている
+ # is_deletedがfalseならtrueを返すようにしている。これで退会済みのユーザ(is_deleted == true)はログインできないようにしている
   def active_for_authentication?
     super && (is_deleted == false)
   end
