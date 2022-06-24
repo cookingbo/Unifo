@@ -1,6 +1,5 @@
-<!--会員新規登録ページ-->
+<!--新規会員登録ページ-->
 <h2>新規登録</h2>
-
   <%= form_with model: @user, url: user_registration_path do |f| %>
   <div class="error-message">
     <%= render "public/shared/error_messages", resource: resource %>
@@ -73,7 +72,6 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "確認用パスワード" %>
     </div>
   </div>
-
   <div class="actions">
     <%= f.submit "　登録　", class: "btn btn-outline-secondary" %>
   </div>
@@ -81,6 +79,3 @@
 <div class="actions">
   <%= render "public/shared/links" %>
 </div>
-
-
-

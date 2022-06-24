@@ -17,6 +17,10 @@ header {
   border-bottom: solid 1px #BBBBBB;
   font-family: 'Calibri', cursive;
   background-color: #FFFFFF;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 
 .navbar .navbar-expand-lg .navbar-light {
@@ -152,6 +156,14 @@ main {
   position: absolute;
   top: 5px;
   right: 10px;
+}
+
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  right: 10px;
+  z-index: 2;
 }
 
 .search-tag {
@@ -376,6 +388,14 @@ input[type="password"] {
   height: 50px;
 }
 
+#range {
+  height: 29px;
+}
+
+#search {
+  height: 29px;
+}
+
 /*タブレット横置きサイズ*/
 @media screen and (max-width:1024px) {
 
@@ -429,7 +449,6 @@ input[type="password"] {
     height: auto;
     padding-bottom: 80px;
   }
-
 }
 
 /*タブレット縦置きサイズ*/

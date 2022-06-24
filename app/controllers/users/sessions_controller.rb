@@ -4,6 +4,6 @@ class Users::SessionsController < Devise::SessionsController
     user = User.guest
     sign_in user
     flash[:notice] = '採用ご担当者様がログインしました。'
-    redirect_to public_user_path(user)
+    redirect_to "/"
   end
 end

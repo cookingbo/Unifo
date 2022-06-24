@@ -13,31 +13,33 @@
 
   <!--サイドバー-->
   <div class="col-md-4">
-    <div class="search-tag">
-      <h6>#タグ検索</h6>
-      <div class="tag-search">
-        <%= form_tag "/", method: :get do %>
-          <%= select_tag :tag_id,
-             options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
-             {
-               prompt: '#タグで絞り込み検索',
-               onchange: 'submit(this.form);'
-             }
-          %>
-        <% end %>
+    <div class="sidebar">
+       <div class="search-tag">
+        <h6>#タグ検索</h6>
+        <div class="tag-search">
+          <%= form_tag "/", method: :get do %>
+            <%= select_tag :tag_id,
+               options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+               {
+                 prompt: '#タグで絞り込み検索',
+                 onchange: 'submit(this.form);'
+               }
+            %>
+          <% end %>
+        </div>
       </div>
+      <% if user_signed_in? %>
+      <div class="user-info">
+        <%= render 'public/users/sidebar', user: current_user %>
+      </div>
+      <div class="users">
+        <%= render 'public/users/users', user: @users %>
+      </div>
+      <% else %>
+      <div class="users">
+        <%= render 'public/users/users', user: @users %>
+      </div>
+      <% end %>
     </div>
-    <% if user_signed_in? %>
-    <div class="user-info">
-      <%= render 'public/users/sidebar', user: current_user %>
-    </div>
-    <div class="users">
-      <%= render 'public/users/users', user: @users %>
-    </div>
-    <% else %>
-    <div class="users">
-      <%= render 'public/users/users', user: @users %>
-    </div>
-    <% end %>
   </div>
 </div>
