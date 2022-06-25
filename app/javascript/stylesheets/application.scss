@@ -17,10 +17,10 @@ header {
   border-bottom: solid 1px #BBBBBB;
   font-family: 'Calibri', cursive;
   background-color: #FFFFFF;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 3;
+  width: 100%;
 }
 
 .navbar .navbar-expand-lg .navbar-light {
@@ -68,6 +68,7 @@ html, body, main {
 }
 
 main {
+  margin-top: 80px;
   min-height: 100%;
   width: 100%;
   padding: 10px 50px 0;
@@ -75,6 +76,8 @@ main {
   background-color: #EEEEEE;
   justify-content: center;
   position: relative;
+  color: #000000;
+  z-index: 1;
 }
 
 main a:hover {
@@ -90,10 +93,6 @@ main h2 {
   line-height: 50px;
   padding-left: 45px;
   font-weight: bold;
-}
-
-main {
-  color: #000000;
 }
 
 .col-md-8 {
@@ -159,11 +158,9 @@ main {
 }
 
 .sidebar {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  right: 10px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .search-tag {
