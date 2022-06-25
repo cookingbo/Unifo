@@ -66,17 +66,17 @@
               </li>
               <% end %>
             </ul>
-            <div>
+            <div class="search-box">
               <%= render 'public/searches/search' %>
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <div class="notice">
-      <%= flash[:notice] %>
-    </div>
     <main>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
       <div class="container">
         <%= yield %>
       </div>

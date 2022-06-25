@@ -71,7 +71,6 @@ main {
   margin-top: 80px;
   min-height: 100%;
   width: 100%;
-  padding: 10px 50px 0;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   background-color: #EEEEEE;
   justify-content: center;
@@ -264,6 +263,7 @@ main h2 {
 .wrapper {
 	margin-top: 80px;
 	margin-bottom: 20px;
+	padding-top: 50px;
 }
 
 .form-signin {
@@ -385,13 +385,18 @@ input[type="password"] {
   height: 50px;
 }
 
-#range {
-  height: 29px;
+#word {
+  width: 200px;
 }
 
-#search {
-  height: 29px;
+#range {
+  width: 100px;
 }
+
+.notice {
+  width: 100%;
+}
+
 
 /*タブレット横置きサイズ*/
 @media screen and (max-width:1024px) {

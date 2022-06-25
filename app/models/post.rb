@@ -24,9 +24,7 @@ class Post < ApplicationRecord
 
   # 検索欄で打ち込まれた情報を基に振り分ける
   def self.looks(search, word)
-    if search == "perfect_match"
-      @post = Post.where("place LIKE?", "#{word}")
-    elsif search == "partial_match"
+    if search == "partial_match"
       @post = Post.where("place LIKE?", "%#{word}%")
     else
       @post = Post.all
