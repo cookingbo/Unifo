@@ -20,6 +20,7 @@ header {
   background-color: #FFFFFF;
   position: fixed;
   z-index: 3;
+  top: 0;
   width: 100%;
 }
 
@@ -389,6 +390,10 @@ input[type="password"] {
 /*タブレット横置きサイズ*/
 @media screen and (max-width:1024px) {
 
+  #search {
+    width: 60px;
+  }
+
   .post-info {
     width: 100%;
   }
@@ -517,10 +522,23 @@ input[type="password"] {
     height: auto;
     padding-bottom: 80px;
   }
+
+  #word {
+    width: 100%;
+  }
+
+  #range {
+    width: 100%;
+  }
+
 }
 
 /*スマートフォン用*/
 @media screen and (max-width:425px) {
+
+  header {
+    height: 70px;
+  }
 
   h2 {
     font-size: 25px;
@@ -535,8 +553,7 @@ input[type="password"] {
   }
 
   main {
-    margin-top: 66px;
-    padding: 0;
+    padding-top: 70px;
   }
 
   main h2 {
