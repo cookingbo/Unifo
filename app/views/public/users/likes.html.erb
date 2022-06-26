@@ -2,7 +2,7 @@
 <h2>いいね's</h2>
 <div class="row">
   <div class="col-md-8">
-    <% if @like_posts %>
+    <% if @like_posts.present? %>
     <table class="table table-bordered" style="table-layout:fixed;">
       <thead class="table-light text-center">
         <tr>

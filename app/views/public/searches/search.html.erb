@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-md-8">
     <!--検索対象モデルがUserの時 -->
+    <% if @users.present? || @posts.present? %>
     <table class="table table-bordered" style="table-layout:fixed;">
       <% if @range == "ユーザ" %>
       <thead class="table-light text-center">
@@ -57,8 +58,10 @@
       </tbody>
       <% end %>
     </table>
+    <% else %>
+      <p>"<%= @word %>"の検索結果はありません。</p>
+    <% end %>
   </div>
-
   <!--サイドバー-->
   <div class="col-md-4">
     <div class="user-info">

@@ -2,30 +2,37 @@
 <h2><%= @user.name %>のプロフィール</h2>
 <div class="row">
   <div class="col-md-8">
-    <% @posts.each do |post| %>
-    <div class="post">
-      <div class="post-image">
-        <p class="post-image-item">
-          <%= link_to admin_post_path(post) do %>
-            <%= image_tag post.get_image, class: "rounded" %>
-          <% end %>
-        </p>
-        <div class="like-time">
-          <%= localize post.created_at, format: :short %>&emsp;
-          <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= post.likes.count %>いいね
+    <% if @posts.exists? %>
+      <% @posts.each do |post| %>
+      <div class="post">
+        <div class="post-image">
+          <p class="post-image-item">
+            <%= link_to admin_post_path(post) do %>
+              <%= image_tag post.get_image, class: "rounded" %>
+            <% end %>
+          </p>
+          <div class="like-time">
+            <%= localize post.created_at, format: :short %>&emsp;
+            <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= post.likes.count %>いいね
+          </div>
+        </div>
+        <div class="post-info">
+          <p class="post-info-item"><%= post.place %></p>
+          <p><%= post.explaination %></p>
+          <p>
+            <% post.tags.each do |tag| %>
+              #<%= tag.name %>
+            <% end %>
+          </p>
+          <p><%= render 'public/post_comments/counter', post: post %></p>
+        </div>
+        <div class="edit-delete">
+          <%= render "edit-delete", post: post %>
         </div>
       </div>
-      <div class="post-info">
-        <p class="post-info-item"><%= post.place %></p>
-        <p><%= post.explaination %></p>
-        <p>
-          <% post.tags.each do |tag| %>
-            #<%= tag.name %>
-          <% end %>
-        </p>
-        <%= render 'public/post_comments/counter', post: post %>
-      </div>
-    </div>
+      <% end %>
+    <% else %>
+      <p>投稿はありません。</p>
     <% end %>
   </div>
 

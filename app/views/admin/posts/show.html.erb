@@ -32,6 +32,14 @@
           <% end %>
         </p>
       </div>
+      <div class="edit-delete">
+        <%= link_to edit_admin_post_path(@post.id) do %>
+          <i class="far fa-edit fa-lg"></i>&nbsp;
+        <% end %>
+        <%= link_to admin_post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+          <i class="far fa-trash-alt fa-lg"></i>
+        <% end %>
+      </div>
     </div>
     <div class="comment">
       <!--コメント数-->

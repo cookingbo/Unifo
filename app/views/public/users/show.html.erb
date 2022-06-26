@@ -6,43 +6,47 @@
 <% end %>
 <div class="row">
   <div class="col-md-8">
-    <% @posts.each do |post| %>
-    <div class="post">
-      <div class="post-image">
-        <p class="post-image-item">
-          <%= link_to public_post_path(post) do %>
-            <%= image_tag post.get_image, class: "rounded" %>
-          <% end %>
-        </p>
-        <!--いいねボタン。ログインしているときはいいねできる-->
-        <% if user_signed_in? %>
-        <div class="like-time">
-          <p id="like_buttons_<%= post.id %>">
-            <%= render "public/likes/like", post: post %>
+    <% if @posts.exists? %>
+      <% @posts.each do |post| %>
+      <div class="post">
+        <div class="post-image">
+          <p class="post-image-item">
+            <%= link_to public_post_path(post) do %>
+              <%= image_tag post.get_image, class: "rounded" %>
+            <% end %>
           </p>
-        </div>
-        <% else %>
-        <div class="like-time">
-          <%= localize post.created_at, format: :short %>&emsp;
-          <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
-        </div>
-        <% end %>
-      </div>
-      <div class="post-info">
-        <p class="post-info-item"><%= post.place %></p>
-        <p><%= post.explaination %></p>
-        <p>
-          <% post.tags.each do |tag| %>
-            #<%= tag.name %>
+          <!--いいねボタン。ログインしているときはいいねできる-->
+          <% if user_signed_in? %>
+          <div class="like-time">
+            <p id="like_buttons_<%= post.id %>">
+              <%= render "public/likes/like", post: post %>
+            </p>
+          </div>
+          <% else %>
+          <div class="like-time">
+            <%= localize post.created_at, format: :short %>&emsp;
+            <i class="fas fa-thumbs-up fa-lg"></i>&emsp;<%= post.likes.count %>いいね<!--ログインしていないときはいいねカウントのみ-->
+          </div>
           <% end %>
-        </p>
-          <%= render 'public/post_comments/counter', post: post %>&emsp;
+        </div>
+        <div class="post-info">
+          <p class="post-info-item"><%= post.place %></p>
+          <p><%= post.explaination %></p>
+          <p>
+            <% post.tags.each do |tag| %>
+              #<%= tag.name %>
+            <% end %>
+          </p>
+            <%= render 'public/post_comments/counter', post: post %>&emsp;
           <p><i class="far fa-comment"></i><%= link_to "コメントする", public_post_path(post.id) %></p>
+        </div>
+        <div class="edit-delete">
+          <%= render "edit-delete", post: post %>
+        </div>
       </div>
-      <div class="edit-delete">
-        <%= render "edit-delete", post: post %>
-      </div>
-    </div>
+      <% end %>
+    <% else %>
+      <p>投稿がありません。新規投稿ボタンから投稿してみましょう！！</p>
     <% end %>
   </div>
 
