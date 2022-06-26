@@ -1,4 +1,5 @@
 class Admin::RelationshipsController < ApplicationController
+  before_action :authenticate_admin!
   # フォロー一覧
   def followings
     @user = User.find(params[:user_id])

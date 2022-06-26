@@ -4,19 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # アソシエーション
   has_many :posts,         dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :likes,         dependent: :destroy
-
   # フォローしたユーザ(foreign_key(親子関係)でrelationshipのカラムを取ってくる)
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   # フォローされたユーザ(foreign_key(親子関係)でrelationshipのカラムを取ってくる)
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  # フォロー一覧
-  has_many :followings, through: :relationships, source: :followed
-  # フォロワー一覧
-  has_many :followers, through: :reverse_of_relationships, source: :follower
+  # フォロー一覧(上記で作成したテーブルを通してfollowed_idを取得する)
+  has_many :followings, through: :relationships, source: :followed, dependent: :destroy
+  # フォロワー一覧(上記で作成したテーブルを通してfollower_idを取得する)
+  has_many :followers, through: :reverse_of_relationships, source: :follower, dependent: :destroy
 
   # バリデーション
   validates :name, presence: true
@@ -43,7 +41,7 @@ class User < ApplicationRecord
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
-  # フォローを外すとき
+  # フォローを外す時
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
@@ -52,7 +50,7 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  # ユーザと投稿検索の定義づけ
+  # 検索欄で打ち込まれた情報を基に振り分ける。今回はpartial_matchのみで検索を絞る。
   def self.looks(search, word)
     if search == "partial_match"
       @user = User.where("name LIKE?", "%#{word}%")
@@ -74,7 +72,7 @@ class User < ApplicationRecord
     super && (is_deleted == false)
   end
 
-  # エリア選択
+  # エリア選択(areaカラムに番号を振る)
   enum area: {
     "北アメリカ":0, "南アメリカ":1, "アジア":2, "南アフリカ":3, "オセアニア":4, "ヨーロッパ":5
   }

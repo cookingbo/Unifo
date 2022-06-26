@@ -115,6 +115,7 @@ main h2 {
 .post-image .rounded {
   width: 250px;
   height: 250px;
+  object-fit: cover;
 }
 
 .like-time {
@@ -143,6 +144,7 @@ main h2 {
 .post-info .rounded-circle.border.border-muted {
   width: 30px;
   height: 30px;
+  object-fit: cover;
 }
 
 .edit-delete {
@@ -187,6 +189,7 @@ main h2 {
 .user-info .rounded-circle.border.border-muted {
   width: 30px;
   height: 30px;
+  object-fit: cover;
 }
 
 .users {
@@ -205,6 +208,7 @@ main h2 {
 .users .rounded-circle.border.border-muted {
   width: 30px;
   height: 30px;
+  object-fit: cover;
 }
 
 .user-edit {
@@ -221,6 +225,7 @@ main h2 {
 .comment .rounded-circle.border.border-muted {
   width: 30px;
   height: 30px;
+  object-fit: cover;
 }
 
 .new-post {
@@ -293,7 +298,7 @@ input[type="password"] {
 }
 
 .about {
-  height: 700px;
+  height: 500px;
   background-color: #FFFFFF;
   margin-top: 30px;
   padding-top: 40px;
@@ -372,11 +377,13 @@ input[type="password"] {
 .align-middle .rounded {
   width: 50px;
   height: 50px;
+  object-fit: cover;
 }
 
 .align-middle .rounded-circle {
   width: 50px;
   height: 50px;
+  object-fit: cover;
 }
 
 #word {
@@ -584,6 +591,7 @@ input[type="password"] {
   .post-image .rounded {
     width: 320px;
     height: 320px;
+    object-fit: cover;
   }
 
   .like-time p {

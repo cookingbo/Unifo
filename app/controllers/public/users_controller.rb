@@ -23,8 +23,8 @@ class Public::UsersController < ApplicationController
 
   def likes
     @user = User.find(params[:id])
-    likes = Like.where(user_id: @user.id).pluck(:post_id)
-    @like_posts = Post.find(likes)
+    likes = Like.where(user_id: @user.id).pluck(:post_id) # 投稿に紐づいたuser_idと取得したidが同じ情報を持ったいいねを探し、pluckでpost_idカラムのすべてを取得する。
+    @like_posts = Post.find(likes) # 上記の内容に紐づいた投稿を探す
   end
 
   def edit

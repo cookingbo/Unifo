@@ -16,8 +16,12 @@
       <tbody class="text-center">
         <% @users.each do |user| %>
         <tr class="align-middle">
-          <td><%= image_tag user.get_profile_image, class: "rounded-circle" %></td>
-          <td><%= user.name %></td>
+          <td>
+            <%= link_to admin_user_path(user) do %>
+            <%= image_tag user.get_profile_image, class: "rounded-circle" %>
+            <% end %>
+          </td>
+          <td><%= link_to user.name, admin_user_path(user) %></td>
           <td><%= user.followings.count %></td>
           <td><%= user.followers.count %></td>
           <td><%= link_to "詳細", admin_user_path(user), class: "btn btn-outline-secondary" %></td>
