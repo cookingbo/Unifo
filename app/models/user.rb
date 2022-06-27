@@ -16,7 +16,6 @@ class User < ApplicationRecord
   # フォロワー一覧(上記で作成したテーブルを通してfollower_idを取得する)
   has_many :followers, through: :reverse_of_relationships, source: :follower, dependent: :destroy
 
-  # バリデーション
   validates :name, presence: true
   validates :university, presence: true
   validates :area, presence: true

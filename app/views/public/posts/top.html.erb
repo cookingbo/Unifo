@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-8">
     <% @posts.each do |post| %>
-      <% if post.user.is_deleted == false %>
+      <% if post.user.is_deleted == false %> <!--退会ステータスが有効の場合-->
         <div class="post">
           <%= render "post", post: post %>
         </div>
@@ -16,7 +16,9 @@
        <div class="search-tag">
         <h6>#タグ検索</h6>
         <div class="tag-search">
-          <%= form_tag "/", method: :get do %>
+          <%= form_tag "/", method: :get do %> <!--タグのフォームを作成-->
+            <!--まずTagのコレクションを並べ、tagのidとnameカラムを選択し、中間テーブルのPostTagにあるtag_idを利用する-->
+            <!--submit関数に、自分のフォームをパラメータとして指定する-->
             <%= select_tag :tag_id,
                options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                {
@@ -27,14 +29,14 @@
           <% end %>
         </div>
       </div>
-      <% if user_signed_in? %>
+      <% if user_signed_in? %> <!--ログインユーザ情報と最近活動したユーザ一覧-->
       <div class="user-info">
         <%= render 'public/users/sidebar', user: current_user %>
       </div>
       <div class="users">
         <%= render 'public/users/users', user: @users %>
       </div>
-      <% else %>
+      <% else %> <!--最近活動したユーザ一覧のみ-->
       <div class="users">
         <%= render 'public/users/users', user: @users %>
       </div>

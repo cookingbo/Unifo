@@ -37,7 +37,7 @@
               #<%= tag.name %>
             <% end %>
           </p>
-            <%= render 'public/post_comments/counter', post: post %>&emsp;
+          <%= render 'public/post_comments/counter', post: post %>&emsp;
           <p><i class="far fa-comment"></i><%= link_to "コメントする", public_post_path(post.id) %></p>
         </div>
         <div class="edit-delete">
@@ -49,7 +49,6 @@
       <p>投稿がありません。新規投稿ボタンから投稿してみましょう！！</p>
     <% end %>
   </div>
-
   <!--サイドバー-->
   <div class="col-md-4">
     <div class="sidebar">

@@ -50,6 +50,3 @@
 - フレームワーク：Ruby on Rails
 - JS ライブラリ：jQuery
 - IDE：Cloud9
-## 使用素材
-
-現在検討中です。

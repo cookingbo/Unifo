@@ -1,3 +1,4 @@
+<!--投稿部分-->
 <div class="post-image">
   <p class="post-image-item">
     <%= link_to public_post_path(post) do %>
@@ -20,6 +21,7 @@
   </div>
   <% end %>
 </div>
+<!--投稿内容-->
 <div class="post-info">
   <p>
     <%= link_to public_user_path(post.user) do %>
@@ -30,9 +32,9 @@
   <p class="post-info-item"><%= post.place %></p>
   <p><%= post.explaination %></p>
   <p>
-  <% post.tags.each do |tag| %>
-    #<%= tag.name %>
-  <% end %>
+    <% post.tags.each do |tag| %>
+      #<%= tag.name %>
+    <% end %>
   </p>
   <%= render 'public/post_comments/counter', post: post %>&emsp;
   <i class="far fa-comment"></i><%= link_to "コメントする", public_post_path(post.id) %>

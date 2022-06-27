@@ -6,7 +6,6 @@ class Post < ApplicationRecord
   has_many :post_tags,                 dependent: :destroy
   has_many :tags, through: :post_tags, dependent: :destroy
 
-  # バリデーション
   validates :place, length: { in: 1..20 }
   validates :explaination, length: { in: 1..200 }
 

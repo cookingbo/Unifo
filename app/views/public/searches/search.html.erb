@@ -16,7 +16,7 @@
       </thead>
       <tbody class="text-center">
         <% @users.each do |user| %>
-          <% if user.is_deleted == false %>
+          <% if user.is_deleted == false %> <!--退会ステータスが有効の場合-->
           <tr class="align-middle">
             <td>
               <%= link_to public_user_path(user) do %>
@@ -42,7 +42,7 @@
       </thead>
       <tbody class="text-center">
         <% @posts.each do |post| %>
-          <% if post.user.is_deleted == false %>
+          <% if post.user.is_deleted == false %> <!--退会ステータスが有効の場合-->
             <tr class="align-middle">
               <td>
                 <%= link_to public_post_path(post) do %>

@@ -21,7 +21,7 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
 
-  # ユーザの論理削除のための記述。退会後は同じアカウントでは利用できない。
+  # ユーザの論理削除のための記述。退会後は同じアカウントを利用できない。
   def reject_user
     @user = User.find_by(email: params[:user][:email]) # ログイン時に入力されたメールアドレスに対応するユーザが存在するか探す
     if @user

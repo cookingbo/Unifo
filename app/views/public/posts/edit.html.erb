@@ -1,5 +1,5 @@
-<h2>投稿編集</h2>
 <!--投稿編集-->
+<h2>投稿編集</h2>
 <div class="container">
   <div class="row">
     <div class="col-md-8">
@@ -33,6 +33,7 @@
           </div>
         </div>
         <div class="checkbox">
+          <!--tag_idsでタグidを渡し、Tag.allでタグのリスト、idでチェックボックスのvalueを指定し、nameでラベル名を指定-->
           <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
             <div class="checkbox-item">
               <%= tag.label class: 'form-check-label' do %>

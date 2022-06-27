@@ -13,6 +13,8 @@ a {
   font-weight: bold;
 }
 
+/*header*/
+
 header {
   height: 80px;
   border-bottom: solid 1px #BBBBBB;
@@ -33,17 +35,12 @@ header {
   padding-right: 50px;
 }
 
+.container-fluid h1 {
+  margin-bottom: 0;
+}
+
 .navbar-brand {
   font-size: 45px;
-}
-
-nav a:hover {
-  color: #222222;
-}
-
-ul {
-  margin: 0;
-  display: flex;
 }
 
 .notice {
@@ -56,6 +53,8 @@ ul {
 html, body, main {
   height: 100%;
 }
+
+/*main*/
 
 main {
   padding-top: 80px;
@@ -72,6 +71,7 @@ main {
 main a:hover {
   color: #888888;
 }
+
 body > main {
   height: auto;
 }
@@ -86,7 +86,7 @@ main h2 {
 }
 
 .col-md-8 {
-  border-top: solid 1px #BBBBBB!important;
+  border-top: solid 1px #BBBBBB;
 }
 
 .space {
@@ -120,10 +120,6 @@ main h2 {
 
 .like-time {
   margin-top: 5px;
-}
-
-.like-time a:visited, a:active {
-  color: #000000;
 }
 
 .post-info {
@@ -557,7 +553,7 @@ input[type="password"] {
   }
 
   .navbar-brand {
-    font-size: 35px;
+    font-size: 40px;
   }
 
   .search-box {

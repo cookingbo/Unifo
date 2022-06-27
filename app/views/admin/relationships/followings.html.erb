@@ -18,7 +18,7 @@
         <tr class="align-middle">
           <td>
             <%= link_to admin_user_path(user) do %>
-            <%= image_tag user.get_profile_image, class: "rounded-circle" %>
+              <%= image_tag user.get_profile_image, class: "rounded-circle" %>
             <% end %>
           </td>
           <td><%= link_to user.name, admin_user_path(user) %></td>
@@ -33,7 +33,6 @@
       <p>フォローしているユーザはいません</p>
     <% end %>
   </div>
-
   <!--サイドバー-->
   <div class="col-md-4">
     <div class="sidebar">
