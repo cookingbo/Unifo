@@ -32,7 +32,7 @@ class Admin::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :image, :place, :explaination)
+    params.require(:post).permit(:user_id, :image, :place, :explaination, tag_ids: [])
   end
 
 end
