@@ -44,6 +44,9 @@
 ### アプリケーション詳細設計
 - https://docs.google.com/spreadsheets/d/1aknae0-ZV-tW8BiuNOZ3AzGGI39SxKm_bYb4VfoByAA/edit?usp=sharing
 
+### 実装機能リスト
+- https://docs.google.com/spreadsheets/d/1z_rqGDLjPUKqhRHdW_HKH2pr1sE7_gcbJA7BZZJ8pOM/edit?usp=sharing
+
 ## 開発環境
 
 - OS：Linux(CentOS)
