@@ -4,7 +4,7 @@ class Public::PostsController < ApplicationController
   def top
     # tag_idがまず存在するか定義する。その後、存在する場合はtag_idを持つ投稿を表示し、存在しなければすべての投稿を降順で表示。
     @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.order("created_at desc")
-    @users = User.order("current_sign_in_at desc") # 活動があったユーザから並べる
+    @users = User.order("created_at desc") # 活動があったユーザから並べる
   end
 
   def new
