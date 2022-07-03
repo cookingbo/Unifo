@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # デフォルトではemailとpasswordの情報しか操作できないため、操作できる情報を増やす
+  # デフォルトではemailとpasswordの情報しか操作できないため、操作できる情報(カラム)を増やす
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
