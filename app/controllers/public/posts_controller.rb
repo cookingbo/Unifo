@@ -2,9 +2,15 @@ class Public::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:top]
 
   def top
-    # tag_idがまず存在するか定義する。その後、存在する場合はtag_idを持つ投稿を表示し、存在しなければ自分とフォローしているユーザの投稿を降順で表示。(following_idsはrailsがアソシエーション時に自動作成)
-    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.where(user_id: [current_user.id, *current_user.following_ids]).order("created_at desc")
-    @users = User.order("current_sign_in_at desc").limit(5) # 活動があったユーザから並べる
+    if user_signed_in?
+      # tag_idがまず存在するか定義する。その後、存在する場合はtag_idを持つ投稿を表示し、存在しなければ自分とフォローしているユーザの投稿を降順で表示。(following_idsはrailsがアソシエーション時に自動作成)
+      @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.order("created_at desc").where(user_id: [current_user.id, *current_user.following_ids])
+      @users = User.order("current_sign_in_at desc").limit(5) # 活動があったユーザから並べる
+    else
+      # tag_idがまず存在するか定義する。その後、存在する場合はtag_idを持つ投稿を表示し、存在しなければすべての投稿を降順で表示。
+      @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.order("created_at desc")
+      @users = User.order("current_sign_in_at desc").limit(5) # 活動があったユーザから並べる
+    end
   end
 
   def new
