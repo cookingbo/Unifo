@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
   before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :unsubscribe]
 
   def show
     @user = User.find(params[:id])
@@ -28,11 +29,9 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "更新できました！"
       redirect_to public_user_path(@user)
@@ -51,6 +50,13 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.name == "採用ご担当者様"
       flash[:notice] =  '採用ご担当者様はプロフィール編集画面へ遷移できません。'
+      redirect_to public_user_path(current_user)
+    end
+  end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
       redirect_to public_user_path(current_user)
     end
   end
