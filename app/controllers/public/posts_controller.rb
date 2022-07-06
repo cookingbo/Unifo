@@ -35,11 +35,11 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "更新しました！"
       redirect_to public_post_path(@post)
@@ -49,7 +49,7 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to '/'
   end
