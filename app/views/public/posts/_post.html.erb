@@ -37,15 +37,8 @@
     <% end %>
   </p>
   <%= render 'public/post_comments/counter', post: post %>&emsp;
-  <i class="far fa-comment"></i><%= link_to "コメントする", public_post_path(post.id) %>
+  <i class="far fa-comment"></i><%= link_to "コメントする", public_post_path(post) %>
 </div>
 <div class="edit-delete">
-  <% if post.user == current_user %>
-    <%= link_to edit_public_post_path(post.id) do %>
-      <i class="far fa-edit fa-lg"></i>&nbsp;
-    <% end %>
-    <%= link_to public_post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
-      <i class="far fa-trash-alt fa-lg"></i>
-    <% end %>
-  <% end %>
+  <%= render "edit-delete", post: post %>
 </div>

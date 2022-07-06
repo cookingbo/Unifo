@@ -41,7 +41,7 @@
           <p><i class="far fa-comment"></i><%= link_to "コメントする", public_post_path(post.id) %></p>
         </div>
         <div class="edit-delete">
-          <%= render "edit-delete", post: post %>
+          <%= render "public/posts/edit-delete", post: post %>
         </div>
       </div>
       <% end %>

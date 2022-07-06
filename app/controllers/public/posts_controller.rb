@@ -35,9 +35,11 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "更新しました！"
       redirect_to public_post_path(@post)
@@ -47,6 +49,7 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
     @post.destroy
     redirect_to '/'
   end
@@ -58,8 +61,8 @@ class Public::PostsController < ApplicationController
   end
 
   def ensure_correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
       redirect_to public_post_path(current_user)
     end
   end
