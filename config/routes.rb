@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   # 管理者側ルーティング
   namespace :admin do
     root to: "posts#index"
+    # 検索結果画面
+    get "search" => "searches#search"
     resources :posts, only: [:show, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy] # 1人のユーザに対して一度しかフォローできないため、resourceとすることでidを含めない形にした。

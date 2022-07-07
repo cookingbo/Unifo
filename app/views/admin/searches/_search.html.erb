@@ -1,0 +1,8 @@
+<% if admin_signed_in? %>
+  <%= form_with url: admin_search_path, method: :get, class: "d-flex g-3" do |f| %>
+    <%= f.text_field :word, :placeholder => "キーワードを記入", class: "form-control" %>
+    <%= f.select :range, options_for_select([['場所'], ['ユーザ']]){ |p| [ p.name, p.id ] }, {}, {class: 'form-select'} %>
+    <%= f.select :search, options_for_select([["部分","partial_match"]]){ |p| [ p.name, p.id ] }, {}, {class: 'form-control'} %>
+    <%= f.submit "検索", class: "btn btn-secondary" %>
+  <% end %>
+<% end %>

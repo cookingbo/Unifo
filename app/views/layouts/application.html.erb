@@ -67,7 +67,12 @@
               <% end %>
             </ul>
             <div class="search-box">
-              <%= render 'public/searches/search' %>
+              <% if user_signed_in? %>
+                <%= render 'public/searches/search' %>
+              <% elsif admin_signed_in? %>
+                <%= render 'admin/searches/search' %>
+              <% else %>
+              <% end %>
             </div>
           </div>
         </div>

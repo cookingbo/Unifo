@@ -1,0 +1,59 @@
+<!--検索結果一覧-->
+<h2>"<%= @word %>"の検索結果</h2>
+<div class="row">
+  <!--検索対象モデルがUserの時 -->
+  <% if @users.present? || @posts.present? %>
+  <table class="table table-bordered" style="table-layout:fixed;">
+    <% if @range == "ユーザ" %>
+    <thead class="table-light text-center">
+      <tr>
+        <th>#</th>
+        <th>名前</th>
+        <th>大学名</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <% @users.each do |user| %>
+        <tr class="align-middle">
+          <td>
+            <%= link_to admin_user_path(user) do %>
+              <%= image_tag user.get_profile_image, class: "rounded-circle" %>
+            <% end %>
+          </td>
+          <td><%= link_to user.name, admin_user_path(user) %></td>
+          <td><%= user.university %></td>
+          <td><%= link_to "詳細", admin_user_path(user), class: "btn btn-outline-secondary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
+    <thead class="table-light text-center">
+      <tr>
+        <th>#</th>
+        <th>名前</th>
+        <th>場所</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <% @posts.each do |post| %>
+        <tr class="align-middle">
+          <td>
+            <%= link_to admin_post_path(post) do %>
+              <%= image_tag post.get_image, class: "rounded-circle" %>
+            <% end %>
+          </td>
+          <td><%= link_to post.user.name, admin_user_path(post.user) %></td>
+          <td><%= post.place %></td>
+          <td><%= link_to "詳細", admin_post_path(post), class: "btn btn-outline-secondary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <% end %>
+  </table>
+  <% else %>
+    <p>"<%= @word %>"の検索結果はありません。</p>
+  <% end %>
+</div>
