@@ -7,8 +7,8 @@
         <th>#</th>
         <th>名前</th>
         <th>大学名</th>
-        <th>地域</th>
         <th>国名</th>
+        <th>登録日時</th>
         <th>ステータス</th>
       </tr>
     </thead>
@@ -22,8 +22,8 @@
         </td>
         <td><%= link_to user.name, admin_user_path(user) %></td>
         <td><%= user.university %></td>
-        <td><%= user.area %></td>
         <td><%= user.country_name %></td>
+        <td><%= localize user.created_at, format: :short %></td>
         <td>
           <% if user.is_deleted == false %> <!--退会ステータスが有効の場合-->
             <p>
