@@ -7,6 +7,7 @@
         <th>#</th>
         <th>名前</th>
         <th>場所</th>
+        <th>投稿日時</th>
         <th></th>
       </tr>
     </thead>
@@ -20,6 +21,7 @@
         </td>
         <td><%= link_to post.user.name, admin_user_path(post.user) %></td>
         <td><%= post.place %></td>
+        <td><%= localize post.created_at, format: :short %></td>
         <td><%= link_to "詳細", admin_post_path(post), class: "btn btn-outline-secondary" %></td>
       </tr>
       <% end %>
